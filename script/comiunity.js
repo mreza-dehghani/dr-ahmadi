@@ -99,7 +99,7 @@ form.addEventListener('submit', e => {
         if(typeof localStorage !== 'undefined') {
             window.location.assign('../login.html')
         } else {
-            sendMessage();
+            sendMessage()
         }
     }
 })
