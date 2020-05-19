@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'sahel';
+  src: url("font/sahel.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'samim';
+  src: url("font/Samim.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'tanha';
+  src: url("font/Tanha.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'shabnam';
+  src: url("font/Shabnam.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'vazir';
+  src: url("font/Vazir.woff") format("woff");
+}
+/*# sourceMappingURL=font.css.map */

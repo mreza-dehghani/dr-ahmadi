@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+  <head>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="">
+    <title>دکتر احمدی</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet/index.css">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <link rel="icon" href="pic/icon.png" type="image/x-icon">
+  </head>
+  <body >
+
+    <div class="container-fluid">
+
+      <!-- mobile header -->
+
+      <header id="mobile-header">
+        <div id="dark-body" onclick="closeSidebar()"></div>
+        <div id="search-tab">
+          <div id="search-box">
+            <form>
+              <div class="input-group">
+                <input type="search" class="form-control" placeholder="جستجو ...">
+                <div class="input-group-append">
+                  <button type="submit">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="search-content" onclick="closeSearchBox()"></div>
+        </div>
+        <nav class="navbar">
+          <button type="button" id="open-sidebar" onclick="openSidebar()" >
+            <i class="fa fa-navicon"></i>
+          </button>
+          <div id="items">
+            <a id="panel" href="#">پنل کاربری</a>
+            <span id="search-btn" onclick="openSearchBox()"><i class="fa fa-search"></i></span>
+          </div>
+        </nav>
+        <aside id="sidebar-nav">
+          <div id="title">
+            <a href="#">دکتر محمد حسین احمدی</a>
+          </div>
+          <div id="nav-content">
+            <ul class="navbar-nav">
+              <li class="nav-item" ><a href="index.html" class="nav-link"><i class="fa fa-home"></i>خانه</a></li>
+              <li class="nav-item"><a href="#" class="nav-link"><i class="fa  fa-calendar-minus-o"></i>نوبت دهی آنلاین</a></li>
+              <li class="nav-item"><a href="community.html" class="nav-link"><i class="fa fa-commenting-o"></i>انجمن</a></li>
+              <li class="nav-item"><a href="#details-2" class="nav-link" data-toggle="collapse"><i class="fa fa-tags"></i>سایر بخش ها<i class="fa fa-plus plus-link"></i></a>
+                <ul class="collapse" id="details-2">
+                  <li class="nav-item"><a href="#" class="nav-link">مقالات پژوهشی</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">تماس با منشی</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link">درباره ما</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a href="signin.html" class="nav-link"><i class="fa fa-user"></i>ورود / ثبت نام</a></li>
+              <li class="nav-item"><a href="signin.html" class="nav-link"><i class="fa fa-sign-in"></i>ورود منشی</a></li>
+            </ul>
+          </div>
+        </aside>
+        <section id="header-content">
+          <div id="dark-color"></div>
+          <div class="row">
+            <div class="col-12 text-center">
+              <ul>
+                <li><h3>مطب دکتر محمد حسین احمدی</h3></li>
+                <li>نوبت دهی آنلاین</li>
+                <li>انجمن پرسش و پاسخ</li>
+                <li>مقالات پژوهشی</li>
+                <li>تماس با منشی</li>
+                <li>و ...</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <!-- desktop header -->
+
+      <header id="desktop-header" >
+        <div id="dark-color"></div>
+        <div id="search-box-lg">
+          <span onclick="closeSearchBoxLg()"><i class="fa fa-window-close"></i></span>
+          <form>
+            <div class="input-group">
+              <input type="search" class="form-control" placeholder="جستجو ..." autofocus>
+              <div class="input-group-append">
+                <button type="submit">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div id="navbar">
+          <div id="bg-color"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="navbar-brand"><span>drahmadi.ir</span><br><p>دکتر احمدی</p></div>
+              </div>
+              <div class="col-lg-6">
+                <nav class="navbar navbar-expand-lg">
+                  <ul class="navbar-nav">
+                    <li class="nav-item"><a href="index.html" class="nav-link">خانه</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">نوبت دهی آنلاین</a></li>
+                    <li class="nav-item"><a href="community.html" class="nav-link">انجمن</a></li>
+                    <li class="nav-item" id="menu-item"><a href="#" class="nav-link">سایر بخش ها</a>
+                      <ul id="detail-list">
+                        <li class="nav-item"><a href="#" class="nav-link">مقالات پژوهشی</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">تماس با منشی</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">درباره ما</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="col-lg-3">
+                <div id="panel">
+                  <a href="#">ورود</a>
+                  <a href="signin.html">ثبت نام</a>
+                  <span id="search-btn-lg" onclick="openSearchBoxLg()"><i class="fa fa-search"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-12 text-center">
+                <h1>مطب دکتر محمد حسین احمدی</h1>
+              </div>
+              <div class="col-6">
+                <ul>
+                  <li>نوبت دهی آنلاین</li>
+                  <li>مقالات پژوهشی</li>
+                  <li>تعامل با دیگر بیماران</li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul>
+                  <li>انجمن پرسش و پاسخ</li>
+                  <li>تماس با منشی</li>
+                  <li>و ...</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 mx-auto text-center">
+                <span id="to-down" onclick="scrollDown()"><i class="fa fa-angle-double-down"></i></span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <!-- main content -->
+
+      <main>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 pt-5">
+              <h1 class="head-title">خدمات سایت</h1>
+            </div>
+          </div>
+          <div class="row pt-2 p-2">
+            <div class="col-12 col-md-6 col-lg-4 pb-5">
+              <div class="card">
+                <a href="#" class="hover p-5">
+                  <p>نوبت دهی آنلاین</p>
+                </a>
+                <div class="header">
+                  <a href="#"><img src="pic/tune.jpg" alt="this image is get tune"></a>
+                </div>
+                <div class="main">
+                  <a href="#">نوبت دهی آنلاین</a>
+                  <p>
+                    این سرویس برای رفاه حال بیماران تهیه شده است و استفاده از ان الزامی نیست. کسانی که بخواهند از سرویس نوبت گیری اینترنتی استفاده کنند همان مبلغ ویزیت طبق تعرفه را میپردازند. استفاده از این سرویس شامل پوشش بیمه ای نیست. بیمارانی که نمیخواهند از این سرویس استفاده کنند کماکان میتوانند مراجعه حضوری داشته باشند.
+                  </p>
+                </div>
+                <div class="footer">
+                  <a href="#">ادامه مطلب</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 pb-5">
+              <div class="card">
+                <a href="#" class="hover">
+                  <p>انجمن پرسش و پاسخ و تعامل بیماران با یکدیگر</p>
+                </a>
+                <div class="header">
+                  <a href="#"><img src="pic/association.jpg" alt="ehis image is questtion and answer association"></a>
+                </div>
+                <div class="main">
+                  <a href="#">انجمن پرسش و پاسخ</a>
+                  <p>
+                    سرویس انجمن پرسش و پاسخ جهت تعامل بیماران با یکدیگر و طرح سوالات مربوط به مشکل خود که توسط دیگر کاربران سایت پاسخ داده می شود، راه اندازی شده است. این سرویس ویژه بیماران تحت نظرو پزشک نیست و برای سایر عموم قابل دسترس است. با ثبت نام در این سامانه امکان استفاده از آن برای شما فراهم می شود.
+                  </p>
+                </div>
+                <div class="footer">
+                  <a href="#">ادامه مطلب</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 pb-5">
+              <div class="card">
+                <a href="#" class="hover">
+                  <p>آخرین مقالات پژوهشی</p>
+                </a>
+                <div class="header">
+                  <a href="#"><img src="pic/article.jpg" alt="this image is articles"></a>
+                </div>
+                <div class="main">
+                  <a href="#">آخرین مقالات پژوهشی</a>
+                  <p>
+                    دکتر محمد حسین احمدی  از اساتید خوش برخورد و پر انرژی و خلاق گروه گوارش دانشگاه علوم پزشکی شیراز است. وی پزشکی هنرمند است که تحصیلات پزشکی عمومی،تخصصی و فوق تخصص را در شیراز گذرانده و به کمک اساتیدشان به کشور های دارای تکنولوژی برتر  کمک شایانی کرده است. مقالات پژوهشی که ایشان ارائه داده است ...
+                  </p>
+                </div>
+                <div class="footer">
+                  <a href="#">ادامه مطلب</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 pb-5">
+              <div class="card">
+                <a href="#" class="hover">
+                  <p>ارتباط با منشی</p>
+                </a>
+                <div class="header">
+                  <a href="#"><img src="pic/clerk.jpg" alt="this image is contact with clerk"></a>
+                </div>
+                <div class="main">
+                  <a href="#">ارتباط با منشی</a>
+                  <p>
+                    آن دسته از عزیزانی که به هر دلیل نمی توانند در مطب حضور پیدا کنند، جهت رسیدن به پاسخ خود مبنی بر سوالاتی نظیر: چگونگی دریافت نوبت، اطلاع از روند درمانی و ... می توانند از طریق سرویس ارتباط با منشی استفاده نمایند.
+                  </p>
+                </div>
+                <div class="footer">
+                  <a href="#">ادامه مطلب</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- footer -->
+
+      <footer>
+        <div class="container">
+          <span id="to-up" onclick="scrollUp()"><i class="fa fa-angle-double-up"></i></span>
+          <p>تمامی حقوق مادی و معنوی این سایت نزد <a href="#">drahmadi.ir</a> محفوظ است.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script/index.js"></script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/popper.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+  </body>
+</html>
