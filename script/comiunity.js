@@ -13,18 +13,6 @@ const seeAnswersBtn = document.querySelector("#see-answers");
 
 const url = "http://localhost:3000/messages";
 
-// fetch(url).then(res => res.json())
-//     .then(res => {
-//         res.forEach(item => {
-//             let elem = messageBox.cloneNode(true);
-//             messageBox.querySelector('.name').innerHTML = item.name;
-//             messageBox.querySelector('.message-txt').innerHTML = item.message;
-//             container.appendChild(elem);
-
-//             // debugger
-//         })
-//     })
-
 fetch(url)
     .then(response => response.json())
     .then(response => {
@@ -32,7 +20,7 @@ fetch(url)
             let elem = messageBox.cloneNode(true);
             let txt = 'ساعت' + ':';
             messageBox.querySelector('.name').innerHTML = items.name;
-            messageBox.querySelector('#time').innerHTML = txt + ' ' + items.time;
+            messageBox.querySelector('#time').innerHTML = items.date;
             messageBox.querySelector('.message-txt').innerHTML = items.message;
             container.appendChild(elem);
 
@@ -78,12 +66,16 @@ function sendMessage() {
     let min = new Date().getMinutes();
     if (min < 10) min = '0' + min;
     let time = `${hours}:${min}`;
+    const date = new Date();
+
+    let x =date.toLocaleString('fa-IR');
 
     let user_message = {
         // number: phoneNumber,
         name: name,
         message: message,
         time: time,
+        date:x,
         answers: []
     };
 
@@ -102,8 +94,17 @@ form.addEventListener('submit', e => {
     e.preventDefault();
 
     // check for empty fields
-    if (emptyFields(fields)) throwErr("لطفا موارد خواسته شده را پر کنید");
+    if (emptyFields(fields)) {
+        _name.classList.add('invalid');
+        _message.classList.add('invalid');
+        // throwErr("لطفا موارد خواسته شده را پر کنید");
 
+        setTimeout(() => {
+            _message.classList.remove('invalid');
+            _name.classList.remove('invalid');
+        }, 3000)
+    }
+    
     // finaly
     else {
         // if(typeof localStorage !== 'undefined') {

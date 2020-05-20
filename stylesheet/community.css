@@ -343,7 +343,7 @@ body {
 main {
   background-color: #e4e4e4;
   padding-bottom: 40px;
-  min-height: 800px;
+  min-height: 600px;
 }
 
 main .head {
@@ -411,6 +411,18 @@ main .message-text p {
   text-align: justify;
   color: #000000;
   margin-bottom: 25px;
+}
+
+main input[type="text"]:focus, main textarea[name="message-text"]:focus {
+  -webkit-box-shadow: 0 0 5px #00e0ff;
+          box-shadow: 0 0 5px #00e0ff;
+  outline: none;
+}
+
+main .invalid {
+  -webkit-box-shadow: 0 0 5px #e96868;
+          box-shadow: 0 0 5px #e96868;
+  border: 1px solid #e96868;
 }
 
 main .answer-button {

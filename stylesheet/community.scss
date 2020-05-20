@@ -301,7 +301,7 @@ main {
     background-color: $white-color-x;
     // padding-top: 50px;
     padding-bottom: 40px;
-    min-height: 800px;
+    min-height: 600px;
 
     .head {
         font-size: 1.4em;
@@ -369,6 +369,23 @@ main {
             color: $dark-color;
             margin-bottom: 25px;
         }
+    }
+
+    input[type="text"], textarea[name="message-text"] {
+
+        &:focus {
+            box-shadow: 0 0 5px $color-1;
+            outline: none;
+        }
+
+        // &:invalid {
+        //     border: 1px solid $err-color;
+        // }
+    }
+
+    .invalid {
+        box-shadow:0 0 5px $err-color;
+        border: 1px solid $err-color;
     }
 
     .answer-button {
