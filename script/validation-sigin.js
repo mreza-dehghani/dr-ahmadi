@@ -15,7 +15,7 @@ const fields = [username, password];
 
 // Helper functions
 const throwError = message => {
-    errorBox.style.display = "block";   // it is same with errorBox.hidden= true;
+    errorBox.style.display = "block"; // it is same with errorBox.hidden= true;
     errText.innerHTML = message;
 };
 const emptyFields = fields => {
@@ -56,6 +56,7 @@ form.addEventListener("submit", e => {
         errorBox.classList.add("success");
         signIn();
         throwError("با موفقیت ثبت شد.");
+        window.localStorage.setItem("user", )
     };
 });
 
@@ -68,31 +69,27 @@ function signIn() {
 
     const user = {
         phoneNumber: phone_number,
-        password:pass
+        password: pass
     }
-    
-    const urlBasic ='http://localhost:3000/users';
-    
-    fetch(urlBasic, {
-        method: 'POST',
-        body:JSON.stringify(user),
-        headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-    })
-    .then(response => {
-        if (response.ok) {
-            console.log('user is sing in')
-        } else {
-            throwError (response.status)
-        }
-    })
-    .then(() => {
-        window.localStorage.setItem('login', 'login');
-        window.location.assign('../index.html');
-    })
+
+    const url = 'http://localhost:3000/users';
+
+    fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('user is sing in');
+                window.location.assign('../index.html');
+                window.localStorage.setItem('user', user);
+
+            } else {
+                throwError(response.status)
+            }
+        })
 }
-
-
-

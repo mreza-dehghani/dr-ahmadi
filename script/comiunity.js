@@ -96,10 +96,15 @@ form.addEventListener('submit', e => {
 
     // finaly
     else {
-        if(typeof localStorage !== 'undefined') {
-            window.location.assign('../login.html')
-        } else {
-            sendMessage()
-        }
+        // if(typeof localStorage !== 'undefined') {
+        //     alert("ابتدا وارد سایت شوید");
+        //     window.location.assign('../login.html')
+        // } else {
+        //     sendMessage();
+        // }
+
+        sendMessage()
     }
 })
+
+localStorage.setItem('user', 'login')
