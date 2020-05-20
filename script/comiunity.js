@@ -8,6 +8,8 @@ const submitBtn = document.querySelector('button[type="submit"]');
 const container = document.getElementById('message-container');
 
 const messageBox = document.getElementById('message-box');
+const answersBox = document.querySelector('.answers');
+const seeAnswersBtn = document.querySelector("#see-answers");
 
 const url = "http://localhost:3000/messages";
 
@@ -33,6 +35,14 @@ fetch(url)
             messageBox.querySelector('#time').innerHTML = txt + ' ' + items.time;
             messageBox.querySelector('.message-txt').innerHTML = items.message;
             container.appendChild(elem);
+
+            // answers
+            let id = items._id;
+            let id2 = id + 12;
+            let dataTarget = "#" + id2;
+            messageBox.setAttribute('id',id);
+            answersBox.setAttribute('id',id2);
+            seeAnswersBtn.setAttribute('data-target',dataTarget);
         })
     })
 

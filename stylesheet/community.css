@@ -428,9 +428,7 @@ main .answer-button:focus {
 }
 
 main .answers {
-  padding: 10px;
   background-color: #ffffff;
-  margin: 15px 0;
   border-radius: 5px;
   text-align: right;
 }
@@ -440,10 +438,12 @@ main .answers .answer-text {
   color: #000000;
   margin-top: 10px;
   margin-bottom: 3px;
+  padding: 10px;
 }
 
 main .answers #date {
   font-size: 0.8em;
+  padding-right: 10px;
 }
 
 footer {

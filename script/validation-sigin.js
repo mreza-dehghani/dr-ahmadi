@@ -56,7 +56,8 @@ form.addEventListener("submit", e => {
         errorBox.classList.add("success");
         signIn();
         throwError("با موفقیت ثبت شد.");
-        window.localStorage.setItem("user", )
+        window.location.assign('../index.html');
+        // window.localStorage.setItem("user", )
     };
 });
 
@@ -81,15 +82,5 @@ function signIn() {
                 'Content-Type': 'application/json'
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
-        })
-        .then(response => {
-            if (response.ok) {
-                // console.log('user is sing in');
-                window.location.assign('../index.html');
-                window.localStorage.setItem('user', user);
-
-            } else {
-                throwError(response.status)
-            }
         })
 }

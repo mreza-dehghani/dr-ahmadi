@@ -58,7 +58,6 @@ function userSearcher() {
         .then(res => {
             res.forEach(item => {
                 if (item.phoneNumber == user.phoneNumber && item.password == user.password) {
-                    window.localStorage.setItem('login', 'login');
                     window.location.assign('../index.html');
                     // debugger
                 } else {
