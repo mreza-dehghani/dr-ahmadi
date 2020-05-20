@@ -84,7 +84,7 @@ function signIn() {
         })
         .then(response => {
             if (response.ok) {
-                console.log('user is sing in');
+                // console.log('user is sing in');
                 window.location.assign('../index.html');
                 window.localStorage.setItem('user', user);
 
