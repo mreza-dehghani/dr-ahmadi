@@ -18,9 +18,9 @@ fetch(url)
     .then(response => {
         response.forEach(items => {
             let elem = messageBox.cloneNode(true);
-            let txt = 'ساعت' + ':';
+            let txt = 'در تاریخ' + ':';
             messageBox.querySelector('.name').innerHTML = items.name;
-            messageBox.querySelector('#time').innerHTML = items.date;
+            messageBox.querySelector('#time').innerHTML = txt + " " +items.date;
             messageBox.querySelector('.message-txt').innerHTML = items.message;
             container.appendChild(elem);
 
@@ -118,4 +118,4 @@ form.addEventListener('submit', e => {
     }
 })
 
-localStorage.setItem('user', 'login')
+// localStorage.setItem('user', 'login')

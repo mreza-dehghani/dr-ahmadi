@@ -56,6 +56,7 @@ form.addEventListener("submit", e => {
         errorBox.classList.add("success");
         signIn();
         throwError("با موفقیت ثبت شد.");
+        localStorage.setItem("user",'login');
         window.location.assign('../index.html');
         // window.localStorage.setItem("user", )
     };
@@ -83,4 +84,9 @@ function signIn() {
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
         })
+        // .then(() => {
+        //     localStorage.setItem('user','login')
+        // })
 }
+
+// window.localStorage.clear()

@@ -37,7 +37,6 @@ form.addEventListener('submit', e => {
 
     // finaly
     else {
-        // errorBox.classList.add("success");
         userSearcher();
     }
 })
@@ -59,13 +58,13 @@ function userSearcher() {
             res.forEach(item => {
                 if (item.phoneNumber == user.phoneNumber && item.password == user.password) {
                     window.location.assign('../index.html');
-                    // debugger
+                    localStorage.setItem("user", 'loginccc');
                 } else {
-                    throwErr ()
+                    throwErr()
                 }
             })
         })
         .catch(() => {
-            throwError("شماره تلفن یا رمز عبور اشتباه است")
+            throwError("شماره تلفن یا رمز عبور اشتباه است");
         })
 };

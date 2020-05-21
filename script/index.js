@@ -18,8 +18,8 @@ function openSidebar() {
     darkBody = document.getElementById("dark-body");
     sideNav = document.getElementById("sidebar-nav");
 
-    sideNav.style.right= "0";
-    darkBody.style.display= "block";
+    sideNav.style.right = "0";
+    darkBody.style.display = "block";
 }
 
 function closeSidebar() {
@@ -27,8 +27,8 @@ function closeSidebar() {
     darkBody = document.getElementById("dark-body");
     sideNav = document.getElementById("sidebar-nav");
 
-    darkBody.style.display= "none";
-    sideNav.style.right= "-100%";
+    darkBody.style.display = "none";
+    sideNav.style.right = "-100%";
 }
 
 // search box in mobile device
@@ -37,14 +37,14 @@ function openSearchBox() {
     let search;
     search = document.getElementById("search-tab");
 
-    search.style.display= "block";
+    search.style.display = "block";
 }
 
 function closeSearchBox() {
     let search;
     search = document.getElementById("search-tab");
 
-    search.style.display= "none";
+    search.style.display = "none";
 }
 
 // search box in desktop device
@@ -53,41 +53,41 @@ function openSearchBoxLg() {
     let search;
     search = document.getElementById("search-box-lg");
 
-    search.style.opacity= "1";
-    search.style.top= "0";
+    search.style.opacity = "1";
+    search.style.top = "0";
 }
 
 function closeSearchBoxLg() {
     let search;
     search = document.getElementById("search-box-lg");
 
-    search.style.opacity= "0";
-    search.style.top= "-100%";
+    search.style.opacity = "0";
+    search.style.top = "-100%";
 }
 
 // scroll window
 
 function scrollDown() {
     window.scrollTo({
-        top:800,
-        left:800,
-        behavior:"smooth"
+        top: 800,
+        left: 800,
+        behavior: "smooth"
     })
 }
 
 function scrollUp() {
     window.scroll({
-        top:0,
-        left:0,
+        top: 0,
+        left: 0,
         behavior: 'smooth'
-      });
+    });
 }
 
 // ripple button effect
 
 let rippleBtn = document.querySelectorAll('.ripple');
 
-for (let i= 0; i < rippleBtn.length; i++) {
+for (let i = 0; i < rippleBtn.length; i++) {
     rippleBtn[i].addEventListener('mousedown', (event) => {
         let div = document.createElement('DIV');
         let left = event.offsetX + 'px';
@@ -95,7 +95,7 @@ for (let i= 0; i < rippleBtn.length; i++) {
         div.classList.add('ripple-effect');
         div.style.left = left;
         div.style.top = top;
-    
+
         rippleBtn[i].append(div);
         setTimeout(() => {
             rippleBtn[i].removeChild(div)
@@ -103,6 +103,8 @@ for (let i= 0; i < rippleBtn.length; i++) {
     });
 };
 
-localStorage.clear()
+// clear storage
+setInterval(() => {
+    localStorage.clear()
 
-        
+}, 43200000);
