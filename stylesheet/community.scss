@@ -37,6 +37,61 @@ body {
     }
 }
 
+#before-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    background-color: $accent-color;
+
+    #div-2 {
+        padding: 20px;
+        margin:30%;
+        background-color: $white-color;
+        border-radius: 8px;
+        box-shadow: 5px 10px 20px $dark-color-xx;
+
+        p {
+            text-align: justify;
+            color: $dark-color-x;
+        }
+
+        #enter {
+            display:block;
+            margin: 0 auto;
+            padding: 8px 20px;
+        }
+    }
+
+    #loading {
+        display: none;
+        #loading-animate {
+            position: fixed;
+            top: 45%;
+            right: 40%;
+            border: 10px solid $weight-color; /* Light grey */
+            border-top: 10px solid $color-1; /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            z-index: 250;
+            // display: none;
+        }
+
+        .load-div {
+            // display: block;
+            animation: spin 2s linear infinite;
+        }
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .container-fluid {
     overflow: hidden;
     padding: 0 !important;
@@ -471,6 +526,15 @@ footer {
 
 @media screen and (min-width:576px) {
 
+    #before-content {
+        #loading {
+            #loading-animate {
+                top: 45%;
+                right: 46%;
+            }
+        }
+    }
+
     #mobile-header {
         aside {
             width: 55%;
@@ -509,6 +573,23 @@ footer {
 }
 
 @media screen and (min-width:768px) {
+
+    #before-content {
+        #div-2 {
+            margin:22%;
+    
+            p {
+                text-align: justify;
+            }
+        }
+
+        #loading {
+            #loading-animate {
+                top: 45%;
+                right: 46%;
+            }
+        }
+    }
 
     #mobile-header {
         nav {
@@ -552,6 +633,23 @@ footer {
 }
 
 @media screen and (min-width:992px) {
+
+    #before-content {
+        #div-2 {
+            margin:19%;
+    
+            p {
+                text-align: justify;
+            }
+        }
+
+        #loading {
+            #loading-animate {
+                top: 45%;
+                right: 47%;
+            }
+        }
+    }
    
     #mobile-header {
         display: none;
@@ -799,6 +897,24 @@ footer {
 }
 
 @media screen and (min-width:1200px) {
+
+    #before-content {    
+        #div-2 {
+            margin:15%;
+    
+            p {
+                text-align: justify;
+                line-height:28px;
+            }
+        }
+
+        #loading {
+            #loading-animate {
+                top: 45%;
+                right: 48%;
+            }
+        }
+    }
 
     #desktop-header {
         #navbar {

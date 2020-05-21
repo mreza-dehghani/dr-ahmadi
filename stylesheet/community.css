@@ -71,6 +71,81 @@ body {
   }
 }
 
+#before-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 200;
+  background-color: #6BFFC0;
+}
+
+#before-content #div-2 {
+  padding: 20px;
+  margin: 30%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  -webkit-box-shadow: 5px 10px 20px #868686;
+          box-shadow: 5px 10px 20px #868686;
+}
+
+#before-content #div-2 p {
+  text-align: justify;
+  color: #525252;
+}
+
+#before-content #div-2 #enter {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 20px;
+}
+
+#before-content #loading {
+  display: none;
+}
+
+#before-content #loading #loading-animate {
+  position: fixed;
+  top: 45%;
+  right: 40%;
+  border: 10px solid #e7ffe7;
+  /* Light grey */
+  border-top: 10px solid #00e0ff;
+  /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  z-index: 250;
+}
+
+#before-content #loading .load-div {
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 .container-fluid {
   overflow: hidden;
   padding: 0 !important;
@@ -498,6 +573,10 @@ footer p a:hover {
 ===================================================================responsibility=================================================================================
 */
 @media screen and (min-width: 576px) {
+  #before-content #loading #loading-animate {
+    top: 45%;
+    right: 46%;
+  }
   #mobile-header aside {
     width: 55%;
   }
@@ -527,6 +606,16 @@ footer p a:hover {
 }
 
 @media screen and (min-width: 768px) {
+  #before-content #div-2 {
+    margin: 22%;
+  }
+  #before-content #div-2 p {
+    text-align: justify;
+  }
+  #before-content #loading #loading-animate {
+    top: 45%;
+    right: 46%;
+  }
   #mobile-header nav button i {
     font-size: 1.8em;
   }
@@ -552,6 +641,16 @@ footer p a:hover {
 }
 
 @media screen and (min-width: 992px) {
+  #before-content #div-2 {
+    margin: 19%;
+  }
+  #before-content #div-2 p {
+    text-align: justify;
+  }
+  #before-content #loading #loading-animate {
+    top: 45%;
+    right: 47%;
+  }
   #mobile-header {
     display: none;
   }
@@ -760,6 +859,17 @@ footer p a:hover {
 }
 
 @media screen and (min-width: 1200px) {
+  #before-content #div-2 {
+    margin: 15%;
+  }
+  #before-content #div-2 p {
+    text-align: justify;
+    line-height: 28px;
+  }
+  #before-content #loading #loading-animate {
+    top: 45%;
+    right: 48%;
+  }
   #desktop-header #navbar nav ul .nav-item {
     padding: 0 12px;
   }
