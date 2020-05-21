@@ -1,24 +1,24 @@
 "use strict"
 
 // before-content loaded
-const body = document.getElementsByTagName('body');
-const beforeContent = document.getElementById('before-content');
-const content = document.getElementById('content');
-const enterBtn = document.getElementById('enter');
-const loadingDiv = document.getElementById('loading');
-const loadingAnimate = document.getElementById('loading-animate');
+// const body = document.getElementsByTagName('body');
+// const beforeContent = document.getElementById('before-content');
+// const content = document.getElementById('content');
+// const enterBtn = document.getElementById('enter');
+// const loadingDiv = document.getElementById('loading');
+// const loadingAnimate = document.getElementById('loading-animate');
 // loading.hidden = true;
 
-enterBtn.addEventListener('click', () => {
-    loadingDiv.style.display = 'block';
-    loadingAnimate.classList.add('load-div');
-    setTimeout(() => {
-        loadingAnimate.classList.remove('load-div');
-        loadingDiv.style.display = 'none';
-        document.body.removeChild(beforeContent);
-    }, 6000);
-    content.style.display = 'block';
-})
+// enterBtn.addEventListener('click', () => {
+//     loadingDiv.style.display = 'block';
+//     loadingAnimate.classList.add('load-div');
+//     setTimeout(() => {
+//         loadingAnimate.classList.remove('load-div');
+//         loadingDiv.style.display = 'none';
+//         document.body.removeChild(beforeContent);
+//     }, 6000);
+//     content.style.display = 'block';
+// })
 
 // 
 // app js
@@ -76,7 +76,6 @@ const throwErr = message => {
 };
 
 // function to send form data to server
-
 function sendMessage() {
     let name = _name.value;
     let message = _message.value;
@@ -127,11 +126,58 @@ form.addEventListener('submit', e => {
     else {
         if ('user' in localStorage) {
             sendMessage()
-
-
         } else {
             alert('ابتدا وارد سایت شوید');
             window.location.assign('../login.html');
         }
     }
 })
+
+// answer app
+const answerForm = document.querySelectorAll('.form-answer');
+const inputAnswer = document.querySelectorAll('input[name="input-answer"]');
+let inputValue = inputAnswer.value;
+
+// function to send answer to server
+function sendAnswer() {
+    let _id = messageBox.id;
+    const url2 = 'http://localhost:3000/messages';
+    let user_answers = {
+        answers:inputValue
+    }
+
+    fetch(url)
+    .then(response => response.json())
+    .then(response => {
+        response.forEach(i => {
+            const id = i._id;
+            if (_id == id) {
+                console.log('is true')
+            }
+        })
+    })
+}
+
+for (let i = 0; i < answerForm.length; i++) {
+    answerForm[i].addEventListener('submit', (e) => {
+        e.preventDefault();
+        // if (inputAnswer.value === '') {
+        //     inputAnswer[i].classList.add('invalid');
+        //     setTimeout(() => {
+        //         inputAnswer[i].classList.remove('invalid');
+        //     }, 3000)
+        // } else {
+        //     if ('user' in localStorage) {
+        //         sendAnswer();
+        //     } else {
+        //         alert('ابتدا وارد سایت شوید');
+        //         window.location.assign('../login.html');
+        //     }
+        // } 
+        sendAnswer();
+
+    })
+}
+
+
+
