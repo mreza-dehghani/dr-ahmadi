@@ -57,14 +57,17 @@ function userSearcher() {
         .then(res => {
             res.forEach(item => {
                 if (item.phoneNumber == user.phoneNumber && item.password == user.password) {
+                    console.log('شما وارد شدید');
+                    errorBox.classList.add("success");
+                    throwError("وارد شدید");
                     window.location.assign('../index.html');
                     localStorage.setItem("user", 'loginccc');
                 } else {
-                    throwErr()
+                    throwError("شماره تلفن یا رمز عبور اشتباه است")
                 }
             })
         })
-        .catch(() => {
-            throwError("شماره تلفن یا رمز عبور اشتباه است");
-        })
+    // .catch(err => {
+    //     throwError(err);
+    // })
 };
