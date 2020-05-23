@@ -1,5 +1,51 @@
 "use strict"
 
+// const body = document.getElementsByTagName('body');
+
+const fluid = document.createElement('div');
+fluid.classList.add('container-fluid');
+fluid.setAttribute('id', 'before-content');
+
+const containerUi = document.createElement('div');
+containerUi.classList.add('container');
+
+const row = document.createElement('div');
+row.classList.add('row', 'mt-5', 'p-3');
+row.setAttribute('id', 'div');
+
+const col = document.createElement('div');
+col.classList.add('col-12', 'col-sm-9', 'col-md-8', 'col-lg-6', 'col-xl-5', 'mx-auto');
+col.setAttribute('id', 'div-2');
+
+const div_p = document.createElement('div');
+const p = document.createElement('p');
+p.innerHTML = 'سرویس انجمن پرسش و پاسخ جهت تعامل بیماران با یکدیگر و طرح سوالات مربوط به مشکل خود که توسط دیگر کاربران سایت پاسخ داده می شود، راه اندازی شده است. این سرویس ویژه بیماران تحت نظر پزشک نیست و برای سایر عموم قابل دسترس است. با ثبت نام در این سامانه امکان استفاده از آن برای شما فراهم می شود.';
+
+const div_b = document.createElement('div');
+const b = document.createElement('button');
+b.classList.add('ripple');
+b.setAttribute('id', 'enter');
+b.innerHTML = "ادامه";
+
+const div_loading = document.createElement('div');
+div_loading.classList.add('container');
+div_loading.setAttribute('id', 'loading');
+
+const div_loading_animate = document.createElement('div');
+div_loading_animate.setAttribute('id', 'loading-animate');
+
+fluid.append(containerUi);
+containerUi.append(row);
+row.append(col);
+col.append(div_p);
+div_p.append(p);
+col.append(div_b)
+div_b.append(b);
+fluid.append(div_loading);
+div_loading.append(div_loading_animate);
+
+document.body.prepend(fluid);
+
 // before-content loaded
 const body = document.getElementsByTagName('body');
 let beforeContent = document.getElementById('before-content');
@@ -7,7 +53,6 @@ const content = document.getElementById('content');
 const enterBtn = document.getElementById('enter');
 const loadingDiv = document.getElementById('loading');
 const loadingAnimate = document.getElementById('loading-animate');
-// loading.hidden = true;
 
 enterBtn.addEventListener('click', () => {
     loadingDiv.style.display = 'block';
@@ -17,12 +62,12 @@ enterBtn.addEventListener('click', () => {
         loadingDiv.style.display = 'none';
         document.body.removeChild(beforeContent);
     }, 6000);
-    content.style.display = 'block';
 })
 
 // 
 // app js
 // 
+
 const form = document.querySelector('.form');
 const _name = document.querySelector('input[name="name"]');
 const _message = document.querySelector('textarea[name="message-text"]');
@@ -94,7 +139,7 @@ function sendMessage() {
         message: message,
         time: time,
         date: x,
-        answers: []
+        // answers: []
     };
 
     fetch(url, {
@@ -141,9 +186,13 @@ let inputValue = inputAnswer.value;
 // function to send answer to server
 function sendAnswer() {
     let _id = messageBox.id;
-    let user_answers = {
+    let user_message = {
+        // name: name,
+        // message: message,
+        // time: time,
+        // date: x,
         answers: inputValue
-    }
+    };
 
     fetch(url)
         .then(response => response.json())
@@ -151,15 +200,21 @@ function sendAnswer() {
             response.forEach(i => {
                 const id = i._id;
                 if (_id == id) {
-                    console.log('is working');
-                    fetch("http://localhost:3000/messages/" + i._id, {
+                    console.log('it is true');
+                    let x = "http://localhost:3000/messages/" + _id;
+                    fetch(x, {
                         method: 'PATCH',
-                        body: JSON.stringify(user_answers)
+                        body: JSON.stringify(user_message)
                     })
                 }
             })
         })
-
+        // .then(() => {
+        //     fetch(url + '/' + _id, {
+        //         method: 'PATCH',
+        //         body: JSON.stringify(user_message)
+        //     })
+        // })
 
 }
 

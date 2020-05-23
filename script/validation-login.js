@@ -62,12 +62,13 @@ function userSearcher() {
                     throwError("وارد شدید");
                     window.location.assign('../index.html');
                     localStorage.setItem("user", 'loginccc');
-                } else {
-                    throwError("شماره تلفن یا رمز عبور اشتباه است")
-                }
+                } 
+                // else if (item.phoneNumber !== user.phoneNumber && item.password !== user.password) {
+                //     throwError("شماره تلفن یا رمز عبور اشتباه است")
+                // }
             })
         })
-    // .catch(err => {
-    //     throwError(err);
-    // })
+    .catch(err => {
+        throwError('شماره تماس یا رمز عبور اشتباه است');
+    })
 };
