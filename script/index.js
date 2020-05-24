@@ -104,6 +104,11 @@ for (let i = 0; i < rippleBtn.length; i++) {
 };
 
 // clear storage
+
+setInterval(() => {
+    localStorage.removeItem('loading')
+}, 60000)
+
 setInterval(() => {
     localStorage.clear()
 

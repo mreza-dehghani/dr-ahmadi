@@ -1,68 +1,77 @@
 "use strict"
 
-// const body = document.getElementsByTagName('body');
+const loadingStorage = localStorage.getItem('loading');
 
-const fluid = document.createElement('div');
-fluid.classList.add('container-fluid');
-fluid.setAttribute('id', 'before-content');
+if (loadingStorage  == 'undefined' || loadingStorage == null) {
+    const fluid = document.createElement('div');
+    fluid.classList.add('container-fluid');
+    fluid.setAttribute('id', 'before-content');
 
-const containerUi = document.createElement('div');
-containerUi.classList.add('container');
+    const containerUi = document.createElement('div');
+    containerUi.classList.add('container');
 
-const row = document.createElement('div');
-row.classList.add('row', 'mt-5', 'p-3');
-row.setAttribute('id', 'div');
+    const row = document.createElement('div');
+    row.classList.add('row', 'mt-5', 'p-3');
+    row.setAttribute('id', 'div');
 
-const col = document.createElement('div');
-col.classList.add('col-12', 'col-sm-9', 'col-md-8', 'col-lg-6', 'col-xl-5', 'mx-auto');
-col.setAttribute('id', 'div-2');
+    const col = document.createElement('div');
+    col.classList.add('col-12', 'col-sm-9', 'col-md-8', 'col-lg-6', 'col-xl-5', 'mx-auto');
+    col.setAttribute('id', 'div-2');
 
-const div_p = document.createElement('div');
-const p = document.createElement('p');
-p.innerHTML = 'سرویس انجمن پرسش و پاسخ جهت تعامل بیماران با یکدیگر و طرح سوالات مربوط به مشکل خود که توسط دیگر کاربران سایت پاسخ داده می شود، راه اندازی شده است. این سرویس ویژه بیماران تحت نظر پزشک نیست و برای سایر عموم قابل دسترس است. با ثبت نام در این سامانه امکان استفاده از آن برای شما فراهم می شود.';
+    const div_p = document.createElement('div');
+    const p = document.createElement('p');
+    p.innerHTML = 'سرویس انجمن پرسش و پاسخ جهت تعامل بیماران با یکدیگر و طرح سوالات مربوط به مشکل خود که توسط دیگر کاربران سایت پاسخ داده می شود، راه اندازی شده است. این سرویس ویژه بیماران تحت نظر پزشک نیست و برای سایر عموم قابل دسترس است. با ثبت نام در این سامانه امکان استفاده از آن برای شما فراهم می شود.';
 
-const div_b = document.createElement('div');
-const b = document.createElement('button');
-b.classList.add('ripple');
-b.setAttribute('id', 'enter');
-b.innerHTML = "ادامه";
+    const div_b = document.createElement('div');
+    const b = document.createElement('button');
+    b.classList.add('ripple');
+    b.setAttribute('id', 'enter');
+    b.innerHTML = "ادامه";
 
-const div_loading = document.createElement('div');
-div_loading.classList.add('container');
-div_loading.setAttribute('id', 'loading');
+    const div_loading = document.createElement('div');
+    div_loading.classList.add('container');
+    div_loading.setAttribute('id', 'loading');
 
-const div_loading_animate = document.createElement('div');
-div_loading_animate.setAttribute('id', 'loading-animate');
+    const div_loading_animate = document.createElement('div');
+    div_loading_animate.setAttribute('id', 'loading-animate');
 
-fluid.append(containerUi);
-containerUi.append(row);
-row.append(col);
-col.append(div_p);
-div_p.append(p);
-col.append(div_b)
-div_b.append(b);
-fluid.append(div_loading);
-div_loading.append(div_loading_animate);
+    fluid.append(containerUi);
+    containerUi.append(row);
+    row.append(col);
+    col.append(div_p);
+    div_p.append(p);
+    col.append(div_b)
+    div_b.append(b);
+    fluid.append(div_loading);
+    div_loading.append(div_loading_animate);
 
-document.body.prepend(fluid);
+    document.body.prepend(fluid);
 
-// before-content loaded
-const body = document.getElementsByTagName('body');
-let beforeContent = document.getElementById('before-content');
-const content = document.getElementById('content');
-const enterBtn = document.getElementById('enter');
-const loadingDiv = document.getElementById('loading');
-const loadingAnimate = document.getElementById('loading-animate');
+    // before-content loaded
+    const body = document.getElementsByTagName('body');
+    let beforeContent = document.getElementById('before-content');
+    const content = document.getElementById('content');
+    const enterBtn = document.getElementById('enter');
+    const loadingDiv = document.getElementById('loading');
+    const loadingAnimate = document.getElementById('loading-animate');
 
-enterBtn.addEventListener('click', () => {
-    loadingDiv.style.display = 'block';
-    loadingAnimate.classList.add('load-div');
-    setTimeout(() => {
-        loadingAnimate.classList.remove('load-div');
-        loadingDiv.style.display = 'none';
-        document.body.removeChild(beforeContent);
-    }, 6000);
-})
+    enterBtn.addEventListener('click', () => {
+        loadingDiv.style.display = 'block';
+        loadingAnimate.classList.add('load-div');
+        // localStorage.removeItem('loading');
+        localStorage.setItem('loading', 'is loading')
+
+        setTimeout(() => {
+            loadingAnimate.classList.remove('load-div');
+            loadingDiv.style.display = 'none';
+            document.body.removeChild(beforeContent);
+        }, 6000);
+    })
+}
+
+
+
+
 
 // 
 // app js
@@ -209,12 +218,12 @@ function sendAnswer() {
                 }
             })
         })
-        // .then(() => {
-        //     fetch(url + '/' + _id, {
-        //         method: 'PATCH',
-        //         body: JSON.stringify(user_message)
-        //     })
-        // })
+    // .then(() => {
+    //     fetch(url + '/' + _id, {
+    //         method: 'PATCH',
+    //         body: JSON.stringify(user_message)
+    //     })
+    // })
 
 }
 
