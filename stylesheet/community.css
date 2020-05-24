@@ -347,7 +347,7 @@ body {
   width: 100%;
   height: 20%;
   background-color: #74f9ff;
-  text-align: center;
+  text-align: right;
   padding: 28px;
 }
 
@@ -814,15 +814,50 @@ footer p a:hover {
     float: left;
     padding: 16px;
   }
+  #desktop-header #panel #login-item {
+    position: relative;
+    margin-left: 20px;
+    padding-bottom: 15px;
+    font-size: 0.9em;
+  }
+  #desktop-header #panel #login-item:hover #detail-list-2 {
+    visibility: visible;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    top: 100%;
+  }
+  #desktop-header #panel #login-item #detail-list-2 {
+    padding: 0;
+    position: absolute;
+    top: 150%;
+    right: -50%;
+    background-color: #e7ffe7;
+    width: 200px;
+    border-top: 5px solid #00e0ff;
+    border-bottom: 5px solid #00e0ff;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  #desktop-header #panel #login-item #detail-list-2 .nav-item {
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+  }
+  #desktop-header #panel #login-item #detail-list-2 .nav-item:hover {
+    background-color: #ffffff;
+  }
+  #desktop-header #panel #login-item #detail-list-2 .nav-item .nav-link {
+    color: #868686;
+    position: relative;
+    -webkit-transition: 0.2s right;
+    transition: 0.2s right;
+  }
   #desktop-header #panel a {
     color: #868686;
     margin-left: 20px;
     font-size: 0.9em;
     -webkit-transition: 0.1s;
     transition: 0.1s;
-  }
-  #desktop-header #panel a:first-child {
-    color: #868686;
   }
   #desktop-header #panel a:hover {
     text-decoration: none;

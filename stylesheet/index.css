@@ -775,6 +775,44 @@ footer p a:hover {
     float: left;
     padding: 16px;
   }
+  #desktop-header #panel #login-item {
+    position: relative;
+    margin-left: 20px;
+    padding-bottom: 15px;
+    color: #e4e4e4;
+    font-size: 0.9em;
+  }
+  #desktop-header #panel #login-item:hover #detail-list-2 {
+    visibility: visible;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    top: 100%;
+  }
+  #desktop-header #panel #login-item #detail-list-2 {
+    padding: 0;
+    position: absolute;
+    top: 150%;
+    right: -50%;
+    background-color: #ffffff;
+    width: 200px;
+    border-top: 5px solid #00e0ff;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  #desktop-header #panel #login-item #detail-list-2 .nav-item {
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+  }
+  #desktop-header #panel #login-item #detail-list-2 .nav-item:hover {
+    background-color: #e7ffe7;
+  }
+  #desktop-header #panel #login-item #detail-list-2 .nav-item .nav-link {
+    color: #868686;
+    position: relative;
+    -webkit-transition: 0.2s right;
+    transition: 0.2s right;
+  }
   #desktop-header #panel a {
     color: #868686;
     margin-left: 20px;
@@ -782,15 +820,12 @@ footer p a:hover {
     -webkit-transition: 0.1s;
     transition: 0.1s;
   }
-  #desktop-header #panel a:first-child {
-    color: #ffffff;
-  }
   #desktop-header #panel a:hover {
     text-decoration: none;
-    color: #e7ffe7;
+    color: #e4e4e4;
   }
   #desktop-header #panel a:hover:first-child {
-    color: #00e0ff;
+    color: #000000;
   }
   #desktop-header #panel span i {
     color: #868686;
@@ -801,7 +836,7 @@ footer p a:hover {
     transition: 0.1s;
   }
   #desktop-header #panel span:hover i {
-    color: #e7ffe7;
+    color: #e4e4e4;
   }
   #desktop-header section {
     padding-top: 80px;

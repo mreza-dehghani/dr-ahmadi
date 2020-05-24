@@ -793,22 +793,61 @@ footer {
             float: left;
             padding: 16px;
 
+            #login-item {
+                position: relative;
+                margin-left: 20px;
+                padding-bottom: 15px;
+                color: $white-color-x;
+                font-size: 0.9em;
+
+                &:hover {
+                    #detail-list-2 {
+                        visibility: visible;
+                        transition: 0.2s;
+                        top: 100%;
+                    }
+                }
+
+                #detail-list-2 {
+                    padding: 0;
+                    position: absolute;
+                    top: 150%;
+                    right:-50%;
+                    background-color: $white-color;
+                    width: 200px;
+                    border-top: 5px solid $color-1;
+                    visibility: hidden;
+                    overflow: hidden;
+
+                    .nav-item {
+                        width: 100%;
+                        text-align: right;
+                        padding: 10px;
+                        &:hover {
+                            background-color: $weight-color;
+                        }
+
+                        .nav-link {
+                            color: $dark-color-xx;
+                            position: relative;
+                            transition: 0.2s right;
+                        }    
+                    }
+                }
+            }
+
             a {
                 color: $dark-color-xx;
                 margin-left: 20px;
                 font-size: 0.9em;
                 transition: 0.1s;
 
-                &:first-child {
-                    color: $white-color;
-                }
-
                 &:hover {
                     text-decoration: none;
-                    color: $weight-color;
+                    color: $white-color-x;
 
                     &:first-child {
-                        color: $color-1;
+                        color: $dark-color;
                     }
                 }
             }
@@ -824,7 +863,7 @@ footer {
 
                 &:hover {
                     i {
-                        color: $weight-color;
+                        color: $white-color-x;
                     }
                 }
             }

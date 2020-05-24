@@ -2,7 +2,7 @@
 
 const loadingStorage = localStorage.getItem('loading');
 
-if (loadingStorage  == 'undefined' || loadingStorage == null) {
+if (loadingStorage == 'undefined' || loadingStorage == null) {
     const fluid = document.createElement('div');
     fluid.classList.add('container-fluid');
     fluid.setAttribute('id', 'before-content');
@@ -158,7 +158,7 @@ function sendMessage() {
                 'Content-type': 'application/json'
             }
         })
-        .then(() => alert("ارسال شد"))
+        .then(() => console.log("ارسال شد"))
 }
 
 // onsubmit
@@ -196,34 +196,27 @@ let inputValue = inputAnswer.value;
 function sendAnswer() {
     let _id = messageBox.id;
     let user_message = {
-        // name: name,
-        // message: message,
-        // time: time,
-        // date: x,
-        answers: inputValue
-    };
+        answers:inputValue
+    }
 
     fetch(url)
         .then(response => response.json())
         .then(response => {
             response.forEach(i => {
                 const id = i._id;
+                let x = "http://localhost:3000/messages/" + _id;
+
                 if (_id == id) {
                     console.log('it is true');
-                    let x = "http://localhost:3000/messages/" + _id;
-                    fetch(x, {
+                    return fetch(x, {
                         method: 'PATCH',
                         body: JSON.stringify(user_message)
                     })
+
                 }
             })
+
         })
-    // .then(() => {
-    //     fetch(url + '/' + _id, {
-    //         method: 'PATCH',
-    //         body: JSON.stringify(user_message)
-    //     })
-    // })
 
 }
 
