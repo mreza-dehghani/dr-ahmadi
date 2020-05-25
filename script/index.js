@@ -110,7 +110,6 @@ setInterval(() => {
 }, 60000)
 
 setInterval(() => {
-    localStorage.clear()
-
+    localStorage.removeItem('user')
 }, 43200000);
 

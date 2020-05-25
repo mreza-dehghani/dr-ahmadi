@@ -851,6 +851,7 @@ footer p a:hover {
     position: relative;
     -webkit-transition: 0.2s right;
     transition: 0.2s right;
+    font-size: 1.1em;
   }
   #desktop-header #panel a {
     color: #868686;
