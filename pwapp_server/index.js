@@ -15,10 +15,16 @@ const usersDatastore = new nedb({
     autoload: true
 });
 
+const tunesDatastore = new nedb({
+    filename: "tunes.db",
+    autoload: true
+});
+
 const restAPI = rest();
 
 restAPI.addDatastore("messages", messagesDatastore);
 restAPI.addDatastore("users", usersDatastore);
+restAPI.addDatastore("tunes", tunesDatastore);
 
 
 app.use(cors());

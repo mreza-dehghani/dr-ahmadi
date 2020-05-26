@@ -71,10 +71,137 @@ body {
   }
 }
 
+.d-block {
+  display: block;
+}
+
+#before-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 200;
+  background-color: #6BFFC0;
+}
+
+#before-content #div-2 {
+  padding: 20px;
+  margin: 30%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  -webkit-box-shadow: 5px 10px 20px #868686;
+          box-shadow: 5px 10px 20px #868686;
+}
+
+#before-content #div-2 p {
+  text-align: justify;
+  color: #525252;
+}
+
+#before-content #div-2 #enter {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 20px;
+}
+
+#before-content #loading {
+  display: none;
+}
+
+#before-content #loading #loading-animate {
+  position: fixed;
+  top: 45%;
+  right: 40%;
+  border: 10px solid #e7ffe7;
+  /* Light grey */
+  border-top: 10px solid #00e0ff;
+  /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  z-index: 250;
+}
+
+#before-content #loading .load-div {
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+#content-loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 350;
+  background-color: #6BFFC0;
+}
+
+#content-loading #x {
+  position: fixed;
+  top: 45%;
+  right: 40%;
+  border: 10px solid #e7ffe7;
+  border-top: 10px solid #00e0ff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  z-index: 400;
+}
+
+#content-loading .load-div {
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 .container-fluid {
   overflow: hidden;
   padding: 0 !important;
   margin: 0 !important;
+}
+
+.dark-opacity {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .ripple {
@@ -121,16 +248,6 @@ body {
             transform: scale(30);
     opacity: 0;
   }
-}
-
-.dark-opacity {
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.2;
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 #desktop-header {
@@ -268,7 +385,7 @@ body {
   width: 100%;
   height: 20%;
   background-color: #74f9ff;
-  text-align: center;
+  text-align: right;
   padding: 28px;
 }
 
@@ -336,201 +453,115 @@ body {
   font-size: 0.8em;
 }
 
-#mobile-header #header-content {
-  background-image: url(pic/signin-header.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 35vh;
-  width: 100%;
+#mobile-header section {
   margin-top: 50px;
-  position: relative;
-  top: 0;
-  padding-bottom: 50px;
-}
-
-#mobile-header #header-content #dark-color {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.4;
-}
-
-#mobile-header #header-content ul li {
-  color: #ffffff;
-  padding: 10px;
-}
-
-#mobile-header #header-content ul li h3 {
-  color: #00e0ff;
-  font-size: 1.4em;
-  margin-top: 60px;
-  margin-bottom: 50px;
-  font-weight: bold;
-  text-shadow: 0px 7px 5px #000000;
 }
 
 main {
-  background-color: #e7ffe7;
-  padding-bottom: 50px;
+  background-color: #6BFFC0;
+  padding-bottom: 40px;
+  min-height: 600px;
 }
 
-main .head-title {
-  border-bottom: 1px solid #e4e4e4;
-}
-
-main .head-title .nav-item {
-  padding: 5px;
-  font-size: 0.9em;
-  color: #525252;
-}
-
-main .head-title .nav-item a {
-  color: #000000;
-  font-size: 1.2em;
-}
-
-main .head-title .nav-item a:hover {
-  text-decoration: none;
-  color: #525252;
-}
-
-main .head-title .nav-item a::after {
-  content: ' \25C2';
-}
-
-main #box {
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-main #box h3 {
-  text-align: center;
-  font-size: 1.1em;
-  margin-bottom: 30px;
-}
-
-main #box .error-box {
-  background-color: #e96868;
-  margin-bottom: 5px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 0 8px #e96868;
-          box-shadow: 0 0 8px #e96868;
-  color: #ffffff;
+main #tune-container #step-two {
   display: none;
 }
 
-main #box .error-box #err {
+main #tune-container #step-three {
+  display: none;
+}
+
+main #tune-container .head-title {
   text-align: center;
-  padding: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #000000;
+  font-size: 1.4em;
+  line-height: 1.5em;
 }
 
-main #box .success {
-  background-color: #04cc04;
-  color: #ffffff;
-  -webkit-box-shadow: 0 0 8px #04cc04;
-          box-shadow: 0 0 8px #04cc04;
-}
-
-main #box #signin {
-  background-color: #ffffff;
+main #tune-container .card {
+  border: none;
   -webkit-box-shadow: 5px 10px 20px #868686;
           box-shadow: 5px 10px 20px #868686;
   border-radius: 10px;
-  padding: 30px;
-  text-align: right;
 }
 
-main #box #signin label {
-  font-size: 1em;
+main #tune-container .card .body {
+  padding: 30px;
+}
+
+main #tune-container .card .body .dr-img {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+main #tune-container .card .body .dr-img img {
+  width: 25%;
+  border-radius: 25%;
+}
+
+main #tune-container .card .body .dr-name {
+  padding: 10px;
+  text-align: center;
+}
+
+main #tune-container .card .body .dr-name p {
   color: #525252;
 }
 
-main #box #signin input[type="text"], main #box #signin input[type="password"] {
-  direction: ltr;
-  padding: 10px;
-  text-align: left;
-  border-radius: 5px;
-  border: 1px solid #e4e4e4;
-  width: 100%;
+main #tune-container .card .body .dr-name button {
+  padding: 8px;
+}
+
+main #tune-container .card .body #personality-info label {
   margin-bottom: 15px;
 }
 
-main #box #signin input[type="text"]:focus, main #box #signin input[type="password"]:focus {
-  -webkit-box-shadow: 0 0 5px #00e0ff;
-          box-shadow: 0 0 5px #00e0ff;
-  outline: none;
-}
-
-main #box #signin input[type="checkbox"] {
-  margin-left: 5px;
-}
-
-main #box #signin #terms {
-  font-size: 0.8em;
-  color: #525252;
-}
-
-main #box #signin #terms a {
-  font-size: 1em;
-}
-
-main #box #signin button[type="submit"] {
-  padding: 8px 15px;
-  background-color: #e4e4e4;
-  color: #525252;
-  border: none;
+main #tune-container .card .body #personality-info input[type="text"] {
+  text-align: center;
   border-radius: 5px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
-  min-width: 70px;
+  padding: 5px;
+}
+
+main #tune-container .card .body #personality-info input[type="text"]:focus {
+  border: 1px solid #00e0ff;
+  -webkit-box-shadow: 0 0 10px #00e0ff;
+          box-shadow: 0 0 10px #00e0ff;
+}
+
+main #tune-container .card .body #personality-info .invalid {
+  -webkit-box-shadow: 0 0 5px #e96868;
+          box-shadow: 0 0 5px #e96868;
+  border: 1px solid #e96868;
+}
+
+main #tune-container .card .body #personality-info button {
+  padding: 8px;
+}
+
+main #tune-container .card .body .wrapper {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  border: 2px solid #e4e4e4;
+  margin-bottom: 25px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+main #tune-container .card .body .wrapper:hover {
+  background-color: #e7ffe7;
+}
+
+main #tune-container .card .body .wrapper span {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e4e4;
   display: block;
 }
 
-main #box #signin button[type="submit"]:hover {
-  background-color: #00e0ff;
-}
-
-main #box #signin button[type="submit"]:focus {
-  outline: none;
-}
-
-main #box #signin a {
-  font-size: 0.8em;
-}
-
-main #box #signin a:hover {
-  text-decoration: none;
-}
-
-main #box #signin #btn {
-  padding: 5px 10px;
-  background-color: #ffffff;
-  color: #525252;
-  border: 2px solid #ffffff;
-  border-radius: 5px;
-  font-size: 1em;
-  margin-top: 20px;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
-}
-
-main #box #signin #btn:last-child {
-  font-size: 0.9em;
-}
-
-main #box #signin #btn:last-child:hover {
-  background-color: #ffffff;
-  color: #00e0ff;
-}
-
-main #box #signin #btn:hover {
-  background-color: #00e0ff;
+main #tune-container .card .body .wrapper .date {
+  padding: 10px;
 }
 
 footer {
@@ -541,7 +572,7 @@ footer {
 }
 
 footer #to-up i {
-  color: #525252;
+  color: #000000;
   font-size: 2.5em;
   -webkit-animation: up 2.5s infinite;
           animation: up 2.5s infinite;
@@ -555,7 +586,8 @@ footer #to-up i:hover i {
 }
 
 footer p {
-  color: #525252;
+  font-size: 0.9em;
+  color: #000000;
   margin-top: 20px;
 }
 
@@ -572,21 +604,34 @@ footer p a:hover {
 ===================================================================responsibility=================================================================================
 */
 @media screen and (min-width: 576px) {
+  #before-content #loading #loading-animate {
+    top: 45%;
+    right: 46%;
+  }
+  #content-loading #x {
+    top: 45%;
+    right: 46%;
+  }
   #mobile-header aside {
     width: 55%;
-  }
-  #mobile-header #header-content ul li {
-    font-size: 1.1em;
-  }
-  #mobile-header #header-content ul li h3 {
-    color: #00e0ff;
-    font-size: 1.4em;
-    margin-top: 60px;
-    margin-bottom: 50px;
   }
 }
 
 @media screen and (min-width: 768px) {
+  #before-content #div-2 {
+    margin: 22%;
+  }
+  #before-content #div-2 p {
+    text-align: justify;
+  }
+  #before-content #loading #loading-animate {
+    top: 45%;
+    right: 46%;
+  }
+  #content-loading #x {
+    top: 45%;
+    right: 46%;
+  }
   #mobile-header nav button i {
     font-size: 1.8em;
   }
@@ -599,43 +644,30 @@ footer p a:hover {
   #mobile-header aside {
     width: 40%;
   }
-  #mobile-header #header-content ul li {
-    font-size: 1.1em;
-  }
-  #mobile-header #header-content ul li h3 {
-    color: #00e0ff;
-    font-size: 1.5em;
-    margin-top: 70px;
-    margin-bottom: 50px;
-  }
-  main #box h3 {
-    font-size: 1.5em;
-  }
 }
 
 @media screen and (min-width: 992px) {
+  #before-content #div-2 {
+    margin: 19%;
+  }
+  #before-content #div-2 p {
+    text-align: justify;
+  }
+  #before-content #loading #loading-animate {
+    top: 45%;
+    right: 47%;
+  }
+  #content-loading #x {
+    top: 45%;
+    right: 47%;
+  }
   #mobile-header {
     display: none;
   }
   #desktop-header {
     display: block;
-    background-image: url(pic/signin-header.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
     width: 100%;
     position: relative;
-    top: 0;
-    padding-bottom: 50px;
-  }
-  #desktop-header #dark-color {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    opacity: 0.4;
   }
   #desktop-header #search-box-lg {
     width: 100%;
@@ -647,8 +679,8 @@ footer p a:hover {
     z-index: 25;
     background-color: #525252;
     opacity: 0;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
+    -webkit-transition: 0.7s;
+    transition: 0.7s;
   }
   #desktop-header #search-box-lg form {
     width: 500px;
@@ -698,6 +730,8 @@ footer p a:hover {
     padding-top: 10px;
     position: relative;
     z-index: 5;
+    -webkit-box-shadow: 0 0 5px #868686;
+            box-shadow: 0 0 5px #868686;
   }
   #desktop-header #navbar #bg-color {
     position: absolute;
@@ -705,15 +739,14 @@ footer p a:hover {
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: #000000;
-    opacity: 0.3;
+    background-color: #e7ffe7;
   }
   #desktop-header #navbar .navbar-brand {
     float: right;
   }
   #desktop-header #navbar .navbar-brand span {
     font-size: 0.7em;
-    color: #ffffff;
+    color: #868686;
     font-weight: bold;
   }
   #desktop-header #navbar .navbar-brand p {
@@ -729,10 +762,10 @@ footer p a:hover {
     padding: 0 3px;
   }
   #desktop-header #navbar nav ul .nav-item .nav-link {
-    color: #ffffff;
+    color: #868686;
   }
   #desktop-header #navbar nav ul .nav-item .nav-link:hover {
-    color: #74f9ff;
+    color: #00e0ff;
   }
   #desktop-header #navbar nav ul #menu-item {
     position: relative;
@@ -747,9 +780,10 @@ footer p a:hover {
     position: absolute;
     top: 150%;
     right: 0;
-    background-color: #ffffff;
+    background-color: #e7ffe7;
     width: 200px;
     border-top: 5px solid #00e0ff;
+    border-bottom: 5px solid #00e0ff;
     visibility: hidden;
     overflow: hidden;
   }
@@ -761,7 +795,7 @@ footer p a:hover {
     transition: 0.2s padding;
   }
   #desktop-header #navbar nav ul #menu-item #detail-list .nav-item:hover {
-    background-color: #e7ffe7;
+    background-color: #ffffff;
     padding-right: 5px;
   }
   #desktop-header #navbar nav ul #menu-item #detail-list .nav-item:hover .nav-link {
@@ -790,7 +824,7 @@ footer p a:hover {
     position: relative;
     margin-left: 20px;
     padding-bottom: 15px;
-    color: #e4e4e4;
+    font-size: 0.9em;
   }
   #desktop-header #panel #login-item:hover #detail-list-2 {
     visibility: visible;
@@ -803,9 +837,10 @@ footer p a:hover {
     position: absolute;
     top: 150%;
     right: -50%;
-    background-color: #ffffff;
+    background-color: #e7ffe7;
     width: 200px;
     border-top: 5px solid #00e0ff;
+    border-bottom: 5px solid #00e0ff;
     visibility: hidden;
     overflow: hidden;
   }
@@ -815,7 +850,7 @@ footer p a:hover {
     padding: 10px;
   }
   #desktop-header #panel #login-item #detail-list-2 .nav-item:hover {
-    background-color: #e7ffe7;
+    background-color: #ffffff;
   }
   #desktop-header #panel #login-item #detail-list-2 .nav-item .nav-link {
     color: #868686;
@@ -833,7 +868,7 @@ footer p a:hover {
   }
   #desktop-header #panel a:hover {
     text-decoration: none;
-    color: #e4e4e4;
+    color: #000000;
   }
   #desktop-header #panel a:hover:first-child {
     color: #000000;
@@ -847,40 +882,71 @@ footer p a:hover {
     transition: 0.1s;
   }
   #desktop-header #panel span:hover i {
-    color: #e4e4e4;
+    color: #000000;
   }
-  #desktop-header section {
-    padding-top: 80px;
+  main {
+    padding-top: 40px;
   }
-  #desktop-header section h1 {
-    padding: 30px;
-    color: #00e0ff;
-    font-weight: bold;
-    font-size: 2.9em;
-    padding-bottom: 80px;
-    font-weight: bold;
+  main #tune-container .head-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #000000;
+    font-size: 1.8em;
+    line-height: 1.5em;
   }
-  main .head-title {
+  main #tune-container .card .body {
+    padding: 25px;
+  }
+  main #tune-container .card .body .dr-img {
+    margin-bottom: 20px;
+  }
+  main #tune-container .card .body .dr-img img {
+    width: 160px;
+    height: 165px;
+    border-radius: 50%;
+  }
+  main #tune-container .card .body .dr-name {
+    padding: 10px;
+    text-align: center;
+  }
+  main #tune-container .card .body .dr-name p {
     font-size: 1.2em;
-    padding-bottom: 15px;
   }
-  main #box h3 {
-    font-size: 1.9em;
+  main #tune-container .card .body .dr-name button {
+    padding: 8px;
   }
-  main #box #signin button[type="submit"] {
-    display: inline;
+  main #tune-container .card .body #personality-info {
+    padding: 5px 60px;
+  }
+  main #tune-container .card .body #personality-info input[type="text"]:focus {
+    border: 1px solid #00e0ff;
+    -webkit-box-shadow: 0 0 10px #00e0ff;
+            box-shadow: 0 0 10px #00e0ff;
   }
 }
 
 @media screen and (min-width: 1200px) {
+  #before-content #div-2 {
+    margin: 15%;
+  }
+  #before-content #div-2 p {
+    text-align: justify;
+    line-height: 28px;
+  }
+  #before-content #loading #loading-animate {
+    top: 45%;
+    right: 48%;
+  }
+  #content-loading #x {
+    top: 45%;
+    right: 48%;
+  }
   #desktop-header #navbar nav ul .nav-item {
     padding: 0 12px;
   }
   #desktop-header #navbar nav ul .nav-item .nav-link {
     font-size: 1em;
   }
-  #desktop-header section ul {
-    padding-right: 95px;
-  }
 }
-/*# sourceMappingURL=signin.css.map */
+/*# sourceMappingURL=tune.css.map */
