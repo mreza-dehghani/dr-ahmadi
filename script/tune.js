@@ -135,6 +135,14 @@ submitBtn.addEventListener('click', event => {
         })
     }
 
+    else if (!isNaN(userAge.value)) {
+        userAge.classList.add('invalid');
+
+        setTimeout(() => {
+            userAge.classList.remove('invalid');
+        }, 3000)
+    }
+
     else {
         console.log('true');
         document.body.prepend(divFluid);

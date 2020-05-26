@@ -472,6 +472,18 @@ main {
                         }
                     }
 
+                    input[type="number"] {
+                        text-align: center;
+                        border-radius: 5px;
+                        padding: 5px;
+                        // border: 1px solid $white-color-x;
+
+                        &:focus {
+                            border: 1px solid $color-1;
+                            box-shadow: 0 0 10px $color-1;
+                        }
+                    }
+
                     .invalid {
                         box-shadow:0 0 5px $err-color;
                         border: 1px solid $err-color;
@@ -579,9 +591,6 @@ footer {
         }
     }
 
-    main {
-
-    }
 }
 
 @media screen and (min-width:768px) {
@@ -636,9 +645,6 @@ footer {
         }
     }
 
-    main {
-
-    }
 }
 
 @media screen and (min-width:992px) {

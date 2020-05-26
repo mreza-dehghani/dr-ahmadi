@@ -530,6 +530,18 @@ main #tune-container .card .body #personality-info input[type="text"]:focus {
           box-shadow: 0 0 10px #00e0ff;
 }
 
+main #tune-container .card .body #personality-info input[type="number"] {
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+main #tune-container .card .body #personality-info input[type="number"]:focus {
+  border: 1px solid #00e0ff;
+  -webkit-box-shadow: 0 0 10px #00e0ff;
+          box-shadow: 0 0 10px #00e0ff;
+}
+
 main #tune-container .card .body #personality-info .invalid {
   -webkit-box-shadow: 0 0 5px #e96868;
           box-shadow: 0 0 5px #e96868;
