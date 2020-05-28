@@ -122,6 +122,20 @@ const emptyFields = fields => {
     return isEmpty;
 }
 
+const userIsNumber = username => {
+    if (!isNaN(username.value)) return true;
+    else return false;
+};
+
+const user = {
+    firstname:'',
+    lastname:'',
+    get fullname() {
+        return this.firstname + this.lastname
+    },
+    age:''
+}
+
 submitBtn.addEventListener('click', event => {
     event.preventDefault();
 
@@ -135,7 +149,7 @@ submitBtn.addEventListener('click', event => {
         })
     }
 
-    else if (!isNaN(userAge.value)) {
+    else if (!userIsNumber(userAge)) {
         userAge.classList.add('invalid');
 
         setTimeout(() => {
@@ -150,6 +164,14 @@ submitBtn.addEventListener('click', event => {
         step1.hidden = true;
         step2.classList.remove('d-block');
         step3.classList.add('d-block');
+
+        // app js
+
+        user.firstname = userFirstName.value;
+        user.lastname = userLastName.value;
+        user.age = userAge.value;
+
+        console.log(user.fullname)
     
         setTimeout(() => {
             console.log('true');
@@ -161,21 +183,6 @@ submitBtn.addEventListener('click', event => {
 })
 
 // app js
-
-
-
-const user = {
-    firstname: userFirstName,
-    lastname: userLastName,
-    age: userAge,
-    date: ''
-}
-
-
-
-
-
-
 
 const dateWrapper = document.querySelector('.wrapper');
 const spanDay = document.getElementById('day');
