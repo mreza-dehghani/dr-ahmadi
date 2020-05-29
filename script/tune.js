@@ -133,7 +133,8 @@ const user = {
     get fullname() {
         return this.firstname + this.lastname
     },
-    age:''
+    age:'',
+    date:{}
 }
 
 submitBtn.addEventListener('click', event => {
