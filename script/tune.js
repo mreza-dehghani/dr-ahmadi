@@ -20,7 +20,11 @@ if (loadingStorage == 'undefined' || loadingStorage == null) {
 
     const div_p = document.createElement('div');
     const p = document.createElement('p');
+    const p2 = document.createElement('p');
+    const bold = document.createElement('b');
     p.innerHTML = 'این سرویس برای رفاه حال بیماران تهیه شده است و استفاده از ان الزامی نیست. کسانی که بخواهند از سرویس نوبت گیری اینترنتی استفاده کنند همان مبلغ ویزیت طبق تعرفه را میپردازند. استفاده از این سرویس شامل پوشش بیمه ای نیست. بیمارانی که نمیخواهند از این سرویس استفاده کنند کماکان میتوانند مراجعه حضوری داشته باشند.';
+    p2.innerHTML = 'در هر مرحله از نوبت گیری امکان برگشت به مرحله قبل وجود ندارد.';
+    bold.innerHTML = 'توجه: ';
 
     const div_b = document.createElement('div');
     const b = document.createElement('button');
@@ -40,7 +44,9 @@ if (loadingStorage == 'undefined' || loadingStorage == null) {
     row.append(col);
     col.append(div_p);
     div_p.append(p);
-    col.append(div_b)
+    div_p.append(p2);
+    p2.prepend(bold);
+    col.append(div_b);
     div_b.append(b);
     fluid.append(div_loading);
     div_loading.append(div_loading_animate);
@@ -128,19 +134,19 @@ const userIsNumber = username => {
 };
 
 const user = {
-    firstname:'',
-    lastname:'',
+    firstname: '',
+    lastname: '',
     get fullname() {
         return this.firstname + this.lastname
     },
-    age:'',
-    date:{}
+    age: '',
+    date: []
 }
 
 submitBtn.addEventListener('click', event => {
     event.preventDefault();
 
-    if(emptyFields(fields)) {
+    if (emptyFields(fields)) {
         fields.forEach(i => {
             i.classList.add('invalid');
 
@@ -148,17 +154,13 @@ submitBtn.addEventListener('click', event => {
                 i.classList.remove('invalid');
             }, 3000)
         })
-    }
-
-    else if (!userIsNumber(userAge)) {
+    } else if (!userIsNumber(userAge)) {
         userAge.classList.add('invalid');
 
         setTimeout(() => {
             userAge.classList.remove('invalid');
         }, 3000)
-    }
-
-    else {
+    } else {
         console.log('true');
         document.body.prepend(divFluid);
         divLoadDiv.classList.add('load-div');
@@ -173,7 +175,7 @@ submitBtn.addEventListener('click', event => {
         user.age = userAge.value;
 
         console.log(user.fullname)
-    
+
         setTimeout(() => {
             console.log('true');
             document.body.removeChild(divFluid);
@@ -183,11 +185,12 @@ submitBtn.addEventListener('click', event => {
 
 })
 
-// app js
+// time functions
 
 const dateWrapper = document.querySelector('.wrapper');
 const spanDay = document.getElementById('day');
-const divDate = document.querySelector('.date');
+const divDate = document.getElementById('date');
+const pDate = document.getElementById('txt');
 
 const now = new Date();
 let weekDay = now.toLocaleDateString('fa-IR', {
@@ -204,19 +207,70 @@ let monthName = now.toLocaleDateString('fa-IR', {
 });
 let dateString = `${weekDay}، ${monthDay} ${monthName} ${year}`;
 
-let i =1;
 
-while(i < 5) {
-    let id = Math.random();
-    const wrapperContent = document.getElementById("wrapper-content");
-    dateWrapper.setAttribute('id', id);
-    let elem = dateWrapper.cloneNode(true);
-    spanDay.innerHTML = weekDay;
-    divDate.innerHTML = dateString;
-    wrapperContent.append(elem)
-    i ++
+const wrapperContent = document.getElementById("wrapper-content");
+let dateObj = {
+    day: '',
+    date: ''
 }
 
+function getTune() {
+    const url = 'http://localhost:3000/tunes';
+    fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log(response.status)
+            }
+        })
+}
 
+class Tune {
+    constructor(elem) {
+        this._elem = elem;
+        elem.onclick = this.onClick.bind(this);
+    }
 
-console.log(dateString)
+    one() {
+        alert('آیا مطمئن هستید؟');
+        const day = spanDay.innerText;
+        const fullDate = pDate.innerText;
+        console.log(day + fullDate);
+        dateObj.day = day;
+        dateObj.date = fullDate;
+        user.date = dateObj;
+        getTune();
+    }
+
+    two() {
+        alert('second day')
+    }
+
+    three() {
+        alert('third day');
+    }
+
+    four() {
+        alert('four day')
+    }
+
+    five() {
+        alert('five day')
+    }
+
+    onClick(event) {
+        event.stopPropagation();
+        let action = event.target.dataset.action;
+        if (action) {
+            this[action]();
+        }
+    };
+}
+
+new Tune(wrapperContent);

@@ -573,6 +573,14 @@ main #tune-container .card .body .wrapper span {
 
 main #tune-container .card .body .wrapper .date {
   padding: 10px;
+  padding-bottom: 5px;
+}
+
+main #tune-container .card .body .wrapper .date .selection {
+  display: block;
+  margin: 5px auto;
+  margin-bottom: 0;
+  padding: 8px;
 }
 
 footer {

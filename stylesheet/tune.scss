@@ -512,6 +512,14 @@ main {
 
                     .date {
                         padding: 10px;
+                        padding-bottom: 5px;
+
+                        .selection {
+                            display: block;
+                            margin: 5px auto;
+                            margin-bottom: 0;
+                            padding: 8px;
+                        }
                     }
                 }
 

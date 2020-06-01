@@ -65,7 +65,7 @@ if (loadingStorage == 'undefined' || loadingStorage == null) {
             loadingAnimate.classList.remove('load-div');
             loadingDiv.style.display = 'none';
             document.body.removeChild(beforeContent);
-        }, 6000);
+        }, 1000);
     })
 }
 
@@ -204,7 +204,7 @@ function sendAnswer() {
         .then(response => {
             response.forEach(i => {
                 const id = i._id;
-                let x = "http://localhost:3000/messages/" + _id;
+                let x = "http://localhost:3000/messages/" + i._id;
 
                 if (_id == id) {
                     console.log('it is true');
