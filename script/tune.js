@@ -94,14 +94,12 @@ divFluid.append(divLoadDiv);
 
 enter_Btn.addEventListener('click', event => {
     event.preventDefault();
-    console.log('true');
     document.body.prepend(divFluid);
     divLoadDiv.classList.add('load-div');
     step1.hidden = true;
     step2.classList.add('d-block');
 
     setTimeout(() => {
-        console.log('true');
         document.body.removeChild(divFluid);
         divLoadDiv.classList.remove('load-div');
     }, 500);
@@ -161,7 +159,6 @@ submitBtn.addEventListener('click', event => {
             userAge.classList.remove('invalid');
         }, 3000)
     } else {
-        console.log('true');
         document.body.prepend(divFluid);
         divLoadDiv.classList.add('load-div');
         step1.hidden = true;
@@ -177,7 +174,6 @@ submitBtn.addEventListener('click', event => {
         console.log(user.fullname)
 
         setTimeout(() => {
-            console.log('true');
             document.body.removeChild(divFluid);
             divLoadDiv.classList.remove('load-div');
         }, 500);
@@ -209,9 +205,10 @@ let dateString = `${weekDay}، ${monthDay} ${monthName} ${year}`;
 
 
 const wrapperContent = document.getElementById("wrapper-content");
+
 let dateObj = {
     day: '',
-    date: ''
+    date: '',
 }
 
 function getTune() {
@@ -241,7 +238,6 @@ class Tune {
         alert('آیا مطمئن هستید؟');
         const day = spanDay.innerText;
         const fullDate = pDate.innerText;
-        console.log(day + fullDate);
         dateObj.day = day;
         dateObj.date = fullDate;
         user.date = dateObj;
@@ -249,19 +245,43 @@ class Tune {
     }
 
     two() {
-        alert('second day')
+        alert('آیا مطمئن هستید؟');
+        const day = spanDay.innerText;
+        const fullDate = pDate.innerText;
+        dateObj.day = day;
+        dateObj.date = fullDate;
+        user.date = dateObj;
+        getTune();
     }
 
     three() {
-        alert('third day');
+        alert('آیا مطمئن هستید؟');
+        const day = spanDay.innerText;
+        const fullDate = pDate.innerText;
+        dateObj.day = day;
+        dateObj.date = fullDate;
+        user.date = dateObj;
+        getTune();
     }
 
     four() {
-        alert('four day')
+        alert('آیا مطمئن هستید؟');
+        const day = spanDay.innerText;
+        const fullDate = pDate.innerText;
+        dateObj.day = day;
+        dateObj.date = fullDate;
+        user.date = dateObj;
+        getTune();
     }
 
     five() {
-        alert('five day')
+        alert('آیا مطمئن هستید؟');
+        const day = spanDay.innerText;
+        const fullDate = pDate.innerText;
+        dateObj.day = day;
+        dateObj.date = fullDate;
+        user.date = dateObj;
+        getTune();
     }
 
     onClick(event) {

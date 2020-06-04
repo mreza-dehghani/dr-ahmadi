@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="">
+    <title>دکتر احمدی</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet/clerk-page.css">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <link rel="icon" href="pic/icon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <!-- mobile header -->
+
+        <header id="mobile-header">
+            <div id="dark-body" onclick="closeSidebar()"></div>
+            <div id="search-tab">
+                <div id="search-box">
+                    <form>
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="جستجو ...">
+                            <div class="input-group-append">
+                                <button type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="search-content" onclick="closeSearchBox()"></div>
+            </div>
+            <nav class="navbar">
+                <button type="button" id="open-sidebar" onclick="openSidebar()">
+                    <i class="fa fa-navicon"></i>
+                </button>
+                <div id="items">
+                    <a id="panel" href="login.html">صفحه منشی</a>
+                    <span id="search-btn" onclick="openSearchBox()"><i class="fa fa-search"></i></span>
+                </div>
+            </nav>
+            <aside id="sidebar-nav">
+                <div id="title">
+                    <a href="#">دکتر محمد حسین احمدی</a>
+                </div>
+                <div id="nav-content">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><span class="nav-link"><i class="fa fa-list-alt"></i>لیست بیماران</span>
+                        </li>
+                        <li class="nav-item"><span class="nav-link"><i class="fa fa-commenting-o"></i>سوالات</span></li>
+                        <li class="nav-item"><a href="index.html" class="nav-link"><i
+                                    class="fa fa-sign-out"></i>خروج</a></li>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </header>
+
+        <!-- desktop header -->
+
+        <header id="desktop-header">
+            <div id="navbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="navbar-brand"><span>drahmadi.ir</span><br>
+                                <p>دکتر احمدی</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mx-auto">
+                            <nav class="navbar navbar-expand-lg">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"><span href="" class="nav-link"> صفحه مدیریت منشی</span></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-lg-4" id="for-search">
+                            <form action="" class="">
+                                <input type="search" placeholder="مطلب مورد نظر...">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <aside id="aside">
+            <ul class="navbar-nav navigation">
+                <li class="nav-item"><span class="nav-link" data-action="temp1"><i class="fa fa-list-alt"></i>لیست
+                        بیماران</span>
+                </li>
+                <li class="nav-item"><span class="nav-link" data-action="temp2"><i
+                            class="fa fa-commenting-o"></i>سوالات</span></li>
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa fa-sign-out"></i>خروج</a></li>
+                </li>
+            </ul>
+        </aside>
+
+        <main id="main">
+
+            <!-- <div class="container">
+                <nav class="navbar navbar-expand-lg" id="navigation"> 
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><span class="nav-link"><i class="fa fa-commenting-o"></i>لیست بیماران</span></li>
+                        <li class="nav-item"><span class="nav-link"><i class="fa fa-commenting-o"></i>سوالات</span></li>
+                        <li class="nav-item"><span class="nav-link"><i class="fa fa-sign-out"></i>خروج</span></li>
+                    </ul>
+                </nav>
+            </div> -->
+
+            <div class="container">
+                <div id="temp-1"></div>
+                <div id="temp-2"></div>
+                <!-- <div id="temp-1">
+                    <div>
+                        <table class="table text-center table-bordered" id="list-of-patients">
+
+                            <tr class="bg-light">
+                                <th>#</th>
+                                <th>نام</th>
+                                <th>نام خانوادگی</th>
+                                <th>سن</th>
+                                <th>تاریخ نوبت</th>
+                                <th>ساعت رزرو</th>
+                                <th>وضعیت پرداخت</th>
+                                <th>حذف</th>
+                            </tr>
+
+                            <tr id="tr">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div> -->
+                <!-- <div id="temp-2">
+                    <div>
+                        در حال حاضر این نسخه از برنامه جهت استفاده می شود
+                    </div>
+                </div> -->
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- scripts -->
+    <script src="script/index.js"></script>
+    <script src="script/clerk-page.js"></script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/popper.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+</body>
+
+</html>
