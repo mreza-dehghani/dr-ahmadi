@@ -434,6 +434,14 @@ main #list-of-patients, main #list-of-comments {
   background-color: #ffffff;
 }
 
+main .save-date {
+  background-color: #ffffff;
+  -webkit-box-shadow: 3px 3px 10px 0 #868686;
+          box-shadow: 3px 3px 10px 0 #868686;
+  border-radius: 4px;
+  padding: 20px;
+}
+
 /*
 ===================================================================responsibility=================================================================================
 */

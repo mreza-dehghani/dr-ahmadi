@@ -398,6 +398,13 @@ main {
         overflow: hidden;
         background-color: $white-color;
     }
+
+    .save-date {
+        background-color: $white-color;
+        box-shadow: 3px 3px 10px 0 $dark-color-xx;
+        border-radius: 4px;
+        padding:20px;
+    }
 }
 
 

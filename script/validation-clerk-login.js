@@ -38,20 +38,14 @@ form.addEventListener('submit', e => {
     // finaly
     else {
         userSearcher();
-
     }
 })
 
 // search for see that user and password is valid or not
 
 function userSearcher() {
-    // const url = 'http://localhost:3000/users';
     let phone_number = username.value;
     let pass = password.value;
-    // let user = {
-    //     phoneNumber: phone_number,
-    //     password: pass
-    // }
 
     if (phone_number == "admin" && pass == "admin") {
         console.log('شما وارد شدید');
@@ -62,24 +56,4 @@ function userSearcher() {
     } else {
         throwError("نام کاربری یا رمز عبور اشتباه است")
     }
-
-    // fetch(url)
-    //     .then(response => response.json())
-    //     .then(res => { 
-    //         res.forEach(item => {
-    //             if (item.phoneNumber == user.phoneNumber && item.password == user.password) {
-                    // console.log('شما وارد شدید');
-                    // errorBox.classList.add("success");
-                    // throwError("وارد شدید");
-                    // window.location.assign('../clerk-page.html');
-                    // localStorage.setItem("user", 'loginccc');
-    //             } 
-    //             // else if (item.phoneNumber !== user.phoneNumber && item.password !== user.password) {
-    //             //     throwError("شماره تلفن یا رمز عبور اشتباه است")
-    //             // }
-    //         })
-    //     })
-    // .catch(err => {
-    //     throwError('شماره تماس یا رمز عبور اشتباه است');
-    // })
 };

@@ -2,6 +2,7 @@
 
 let page1 = document.createElement('div');
 let page2 = document.createElement('div');
+let page3 = document.createElement('div');
 
 page1.innerHTML = `
     <div id="temp-1">
@@ -57,6 +58,65 @@ page2.innerHTML = `
                 </tr>
 
             </table>
+        </div>
+    </div>
+`;
+
+page3.innerHTML = `
+    <div class="row mt-5">
+        <p id="txt"></>
+        <div class="col-12 col-md-6 mx-auto mt-5 save-date">
+            <form action="" id="form" class="text-center">
+                <label for="day">از روز:</label>
+                <select name="day" id="" class="form-control my-3">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                </select>
+                <label for="month">ماه:</label>
+                <select name="month" id="" class="form-control my-3">
+                    <option value="فروردین">فروردین</option>
+                    <option value="اردیبهشت">اردیبهشت</option>
+                    <option value="خرداد">خرداد</option>
+                    <option value="تیر">تیر</option>
+                    <option value="مرداد">مرداد</option>
+                    <option value="شهریور">شهریور</option>
+                    <option value="مهر">مهر</option>
+                    <option value="آبان">آبان</option>
+                    <option value="آذر">آذر</option>
+                    <option value="دی">دی</option>
+                    <option value="بهمن">بهمن</option>
+                    <option value="اسفند">اسفند</option>
+                </select>
+                <button type="submit" class="btn btn-primary form-control mt-3">ثبت</button>
+            </form>
         </div>
     </div>
 `;
@@ -132,8 +192,11 @@ class NavigationS {
     temp1() {
         if (main.contains(page2)) {
             main.removeChild(page2);
+            main.append(page1);
+        } else if (main.contains(page3)) {
+            main.removeChild(page3);
+            main.append(page1);
         }
-        main.append(page1);
     }
 
     temp2() {
@@ -141,6 +204,20 @@ class NavigationS {
             main.removeChild(page1);
             main.append(page2);
             secondFetch();
+        } else if (main.contains(page3)) {
+            main.removeChild(page3);
+            main.append(page2);
+            secondFetch();
+        }
+    }
+
+    temp3() {
+        if (main.contains(page1)) {
+            main.removeChild(page1);
+            main.append(page3);
+        } else if (main.contains(page2)) {
+            main.removeChild(page2);
+            main.append(page3);
         }
     }
 
@@ -153,6 +230,14 @@ class NavigationS {
     };
 }
 
+let obj = {
+    // a: '',
+    // b: '',
+    // c: '',
+    // d: '',
+    // e: ''
+}
+
 class NavigationL {
     constructor(elem) {
         this._elem = elem;
@@ -163,6 +248,9 @@ class NavigationL {
         if (main.contains(page2)) {
             main.removeChild(page2);
             main.append(page1);
+        } else if (main.contains(page3)) {
+            main.removeChild(page3);
+            main.append(page1);
         }
     }
 
@@ -170,7 +258,21 @@ class NavigationL {
         if (main.contains(page1)) {
             main.removeChild(page1);
             main.append(page2);
-            secondFetch()
+            secondFetch();
+        } else if (main.contains(page3)) {
+            main.removeChild(page3);
+            main.append(page2);
+            secondFetch();
+        }
+    }
+
+    temp3() {
+        if (main.contains(page1)) {
+            main.removeChild(page1);
+            main.append(page3);
+        } else if (main.contains(page2)) {
+            main.removeChild(page2);
+            main.append(page3);
         }
     }
 
@@ -208,3 +310,42 @@ function secondFetch() {
             })
     }
 }
+
+
+
+// myFunction()
+
+function myFunc() {
+    if (main.contains(page3)) {
+        let txtBox = document.getElementById('txt');
+        function myFunction() {
+            let url3 = "http://localhost:3000/dates";
+            let form = document.getElementById('form');
+            let day = document.querySelector('select[name="day"]').value;
+            let month = document.querySelector('select[name="month"]').value;
+        
+            let obj = {
+                a: '',
+                b: ''
+            }
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                obj.a = day;
+                obj.b = month;
+                fetch(url3, {
+                    method: 'POST',
+                    body:JSON.stringify(obj)
+                })
+            })
+        }
+
+        myFunction()
+    }
+}
+
+// myFunc();
+// setInterval(() => {
+//     myFunc()
+// }, 1000);
+
