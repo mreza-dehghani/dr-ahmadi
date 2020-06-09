@@ -327,7 +327,7 @@ function myFunc() {
             let obj = {
                 a: '',
                 b: ''
-            }
+            }ssssss
 
             form.addEventListener('submit', e => {
                 e.preventDefault();
