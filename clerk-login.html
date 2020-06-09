@@ -160,8 +160,11 @@
             <div class="col-12 col-md-8 col-lg-6 mx-auto">
                 <div id="box">
                     <h3>ورود منشی</h3>
+                    <div class="error-box">
+                      <p id="err"></p>
+                    </div>
                     <div id="signin">
-                        <form action="" >
+                        <form action="" class="form">
                             <label>شماره موبایل</label><br>
                             <input type="text" name="phon-number" placeholder="09*********"><br>
                             <label>رمز عبور</label><br>
@@ -188,6 +191,7 @@
     </div>
 
     <script src="script/index.js"></script>
+    <script src="script/validation-clerk-login.js"></script>
     <script src="lib/swiper.min.js"></script>
     <script src="lib/jquery.js"></script> 
     <script src="lib/popper.min.js"></script>

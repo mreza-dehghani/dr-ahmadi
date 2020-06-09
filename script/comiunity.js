@@ -207,10 +207,12 @@ function sendAnswer() {
                 let x = "http://localhost:3000/messages/" + i._id;
 
                 if (_id == id) {
-                    console.log('it is true');
+                    // console.log('it is true');
                     return fetch(x, {
-                        method: 'PATCH',
-                        body: JSON.stringify(user_message)
+                        method: 'PUT',
+                        body: JSON.stringify({
+                            answers:inputValue
+                        })
                     })
 
                 }

@@ -20,14 +20,14 @@ page1.innerHTML = `
                 </tr>
 
                 <tr id="tr">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                <td></td>
+                <td id="firstname"></td>
+                <td id="lastname"></td>
+                <td id="age"></td>
+                <td id="date"></td>
+                <td id="time"></td>
+                <td id="price"></td>
+                <td id="button"></td>
                 </tr>
 
             </table>
@@ -75,18 +75,49 @@ if (main.contains(page1)) {
 
             res.forEach(element => {
 
+                // tr1.innerHTML = `
+                // <td></td>
+                // <td id="firstname"></td>
+                // <td id="lastname"></td>
+                // <td id="age"></td>
+                // <td id="date"></td>
+                // <td id="time"></td>
+                // <td id="price"></td>
+                // <td id="button"></td>
+                // `;
                 let clone = tr1.cloneNode(true);
-                table1.append(clone);
-                table1.rows[1].cells[1].innerHTML = element.firstname;
-                table1.rows[1].cells[2].innerHTML = element.lastname;
-                table1.rows[1].cells[3].innerHTML = element.age;
-                table1.rows[1].cells[4].innerHTML = element.date.day + ' ' + element.date.date;
-                table1.rows[1].cells[5].innerHTML = 18 + " " + "الی" + " " + 20;
-                table1.rows[1].cells[6].innerHTML = element.price;
-                table1.rows[1].cells[7].innerHTML = '<button class="ripple">حذف</button>';
+                let fname, lname, age, date, time, price, button;
+                fname = document.getElementById('firstname');
+                lname = document.getElementById('lastname');
+                age = document.getElementById('age');
+                date = document.getElementById('date');
+                time = document.getElementById('time');
+                price = document.getElementById('price');
+                button = document.getElementById('button');
 
+                fname.innerHTML = element.firstname;
+                lname.innerHTML = element.lastname;
+                age.innerHTML = element.age;
+                date.innerHTML = element.date.day + ' ' + element.date.date;
+                time.innerHTML = 18 + " " + "الی" + " " + 20;
+                price.innerHTML = element.price;
+                button.innerHTML = '<button class="ripple">حذف</button>';
+
+                // table1.rows[1].cells[1].innerHTML = element.firstname;
+                // table1.rows[1].cells[2].innerHTML = element.lastname;
+                // table1.rows[1].cells[3].innerHTML = element.age;
+                // table1.rows[1].cells[4].innerHTML = element.date.day + ' ' + element.date.date;
+                // table1.rows[1].cells[5].innerHTML = 18 + " " + "الی" + " " + 20;
+                // table1.rows[1].cells[6].innerHTML = element.price;
+                // table1.rows[1].cells[7].innerHTML = '<button class="ripple">حذف</button>';
+
+                table1.append(clone);
             });
         })
+}
+
+if (main.contains(page2)) {
+    console.log('it is work')
 }
 
 const ulMobile = document.querySelector('.navigation-sm');
@@ -108,9 +139,9 @@ class NavigationS {
     temp2() {
         if (main.contains(page1)) {
             main.removeChild(page1);
+            main.append(page2);
+            secondFetch();
         }
-        main.append(page2);
-        secondFetch();
     }
 
     onClick(event) {
@@ -131,16 +162,16 @@ class NavigationL {
     temp1() {
         if (main.contains(page2)) {
             main.removeChild(page2);
+            main.append(page1);
         }
-        main.append(page1);
     }
 
     temp2() {
         if (main.contains(page1)) {
             main.removeChild(page1);
+            main.append(page2);
+            secondFetch()
         }
-        main.append(page2);
-        secondFetch();
     }
 
     onClick(event) {
