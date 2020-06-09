@@ -51,7 +51,7 @@ function userSearcher() {
         console.log('شما وارد شدید');
         errorBox.classList.add("success");
         throwError("وارد شدید");
-        window.location.assign('../clerk-page.html');
+        window.location.assign('./clerk-page.html');
         localStorage.setItem("user", 'loginccc');
     } else {
         throwError("نام کاربری یا رمز عبور اشتباه است")
