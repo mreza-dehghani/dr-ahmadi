@@ -180,7 +180,7 @@ form.addEventListener('submit', e => {
     else {
         if ('user' in localStorage) {
             sendMessage();
-            window.location.reload();
+            location.reload();
         } else {
             alert('ابتدا وارد سایت شوید');
             window.location.assign('../login.html');
