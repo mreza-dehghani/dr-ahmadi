@@ -159,6 +159,7 @@ function sendMessage() {
             }
         })
         .then(() => console.log("ارسال شد"))
+        .then(() => location.reload())
 }
 
 // onsubmit
@@ -180,7 +181,6 @@ form.addEventListener('submit', e => {
     else {
         if ('user' in localStorage) {
             sendMessage();
-            location.reload();
         } else {
             alert('ابتدا وارد سایت شوید');
             window.location.assign('../login.html');
