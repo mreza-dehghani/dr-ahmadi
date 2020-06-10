@@ -115,7 +115,7 @@ page3.innerHTML = `
                     <option value="بهمن">بهمن</option>
                     <option value="اسفند">اسفند</option>
                 </select>
-                <button type="submit" class="btn btn-primary form-control mt-3">ثبت</button>
+                <button type="" onclick="fff()" class="btn btn-primary form-control mt-3">ثبت</button>
             </form>
         </div>
     </div>
@@ -125,26 +125,26 @@ const main = document.getElementById('main-details');
 main.append(page1);
 
 const url1 = 'http://localhost:3000/tunes';
+const tr1 = document.getElementById('tr');
+
+tr1.innerHTML = `
+<td></td>
+<td id="firstname">محمدعلی</td>
+<td id="lastname">محمدی</td>
+<td id="age">32</td>
+<td id="date">شنبه ۶ خرداد ۱۳۹۹ (سه شنبه)‏</td>
+<td id="time">18 الی 20	</td>
+<td id="price">پرداخت شد</td>
+<td id="button"><button class="ripple">حذف</button></td>
+`;
 if (main.contains(page1)) {
     fetch(url1)
         .then(response => response.json())
         .then(res => {
             const table1 = document.getElementById('list-of-patients');
-            const tr1 = document.getElementById('tr');
             console.log(res);
 
             res.forEach(element => {
-
-                // tr1.innerHTML = `
-                // <td></td>
-                // <td id="firstname"></td>
-                // <td id="lastname"></td>
-                // <td id="age"></td>
-                // <td id="date"></td>
-                // <td id="time"></td>
-                // <td id="price"></td>
-                // <td id="button"></td>
-                // `;
                 let clone = tr1.cloneNode(true);
                 let fname, lname, age, date, time, price, button;
                 fname = document.getElementById('firstname');
@@ -273,6 +273,8 @@ class NavigationL {
         } else if (main.contains(page2)) {
             main.removeChild(page2);
             main.append(page3);
+
+
         }
     }
 
@@ -290,13 +292,21 @@ new NavigationL(ulDesktop);
 
 function secondFetch() {
     const url2 = 'http://localhost:3000/messages';
+    const tr2 = document.getElementById('tr2');
+    tr2.innerHTML = `
+        <td></td>
+        <td id="firstname">محمدعلی</td>
+        <td id="lastname">محمدی</td>
+        <td id="date">11:53 ۱۳۹۹/۳/۴،‏ ۱۱:۵۳:۱۶</td>
+        <td id="button"><button class="ripple">پاسخ</button></td>
+        `;
+
     if (main.contains(page2)) {
         console.log('it is true');
         fetch(url2)
             .then(response => response.json())
             .then(response => {
                 const table2 = document.getElementById('list-of-comments');
-                const tr2 = document.getElementById('tr2');
                 console.log(response);
 
                 response.forEach(element => {
@@ -318,15 +328,16 @@ function secondFetch() {
 function myFunc() {
     if (main.contains(page3)) {
         let txtBox = document.getElementById('txt');
+
         function myFunction() {
             let url3 = "http://localhost:3000/dates";
             let form = document.getElementById('form');
             let day = document.querySelector('select[name="day"]').value;
             let month = document.querySelector('select[name="month"]').value;
-        
+
             let obj = {
-                a: '',
-                b: ''
+                a: day,
+                b: month
             }
 
             form.addEventListener('submit', e => {
@@ -335,7 +346,7 @@ function myFunc() {
                 obj.b = month;
                 fetch(url3, {
                     method: 'POST',
-                    body:JSON.stringify(obj)
+                    body: JSON.stringify(obj)
                 })
             })
         }
@@ -348,4 +359,31 @@ function myFunc() {
 // setInterval(() => {
 //     myFunc()
 // }, 1000);
+
+
+function fff() {
+    // if (main.contains(page3)) {
+        let url3 = "http://localhost:3000/dates";
+        let form = document.getElementById('form');
+        let day = document.querySelector('select[name="day"]').value;
+        let month = document.querySelector('select[name="month"]').value;
+    
+        // form.addEventListener('submit', e => {
+            // e.preventDefault();
+            let obj = {
+                a: day,
+                b: month
+            }
+
+            localStorage.setItem('a', day);
+            localStorage.setItem('b', month);
+            fetch(url3, {
+                    method: 'PUT',
+                    body: JSON.stringify(obj)
+                })
+                .then(response => console.log(response.status))
+        // })
+        console.log('true')
+    // }
+}
 
