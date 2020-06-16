@@ -71,7 +71,7 @@ if (loadingStorage == 'undefined' || loadingStorage == null) {
             loadingAnimate.classList.remove('load-div');
             loadingDiv.style.display = 'none';
             document.body.removeChild(beforeContent);
-        }, 500);
+        }, 5000);
     })
 }
 
@@ -240,8 +240,7 @@ function getTune() {
 }
 
 function myFunc() {
-    // window.location.assign('../index.html');
-    alert('نوبت شما ثبت شد.');
+    window.location.assign('../index.html');
 }
 
 class Tune {
@@ -269,6 +268,7 @@ class Tune {
         dateObj.date = fullDate;
         user.date = dateObj;
         getTune();
+        myFunc();
     }
 
     three() {
@@ -279,6 +279,7 @@ class Tune {
         dateObj.date = fullDate;
         user.date = dateObj;
         getTune();
+        myFunc();
     }
 
     four() {
@@ -299,6 +300,7 @@ class Tune {
         dateObj.date = fullDate;
         user.date = dateObj;
         getTune();
+        myFunc();
     }
 
     onClick(event) {

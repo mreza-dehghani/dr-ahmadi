@@ -65,7 +65,7 @@ if (loadingStorage == 'undefined' || loadingStorage == null) {
             loadingAnimate.classList.remove('load-div');
             loadingDiv.style.display = 'none';
             document.body.removeChild(beforeContent);
-        }, 1000);
+        }, 200);
     })
 }
 

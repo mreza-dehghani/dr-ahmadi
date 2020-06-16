@@ -320,7 +320,7 @@ function secondFetch() {
     tr2.innerHTML = `
         <td></td>
         <td id="firstname">محمدعلی</td>
-        <td id="lastname">محمدی</td>
+        <td id="lastname">این متن آزمایشی است.</td>
         <td id="date"> ۱۳۹۹/۳/۴،‏ ۱۱:۵۳:۱۶</td>
         <td id="button"><button class="ripple">پاسخ</button></td>
         `;
@@ -338,7 +338,7 @@ function secondFetch() {
                     table2.append(clone2);
                     table2.rows[1].cells[1].innerHTML = element.name;
                     table2.rows[1].cells[2].innerHTML = element.message;
-                    table2.rows[1].cells[3].innerHTML = element.time + ' ' + element.date;
+                    table2.rows[1].cells[3].innerHTML = element.date;
                     table2.rows[1].cells[4].innerHTML = '<button class="ripple">پاسخ</button>';
                 })
             })
