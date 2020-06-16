@@ -146,7 +146,7 @@ function sendMessage() {
     let user_message = {
         name: name,
         message: message,
-        time: time,
+        // time: time,
         date: x,
         // answers: []
     };

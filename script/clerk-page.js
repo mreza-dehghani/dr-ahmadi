@@ -115,7 +115,7 @@ page3.innerHTML = `
                     <option value="بهمن">بهمن</option>
                     <option value="اسفند">اسفند</option>
                 </select>
-                <button type="" onclick="fff()" class="btn btn-primary form-control mt-3">ثبت</button>
+                <button onclick="fff()" class="btn btn-primary form-control mt-3">ثبت</button>
             </form>
         </div>
     </div>
@@ -135,7 +135,7 @@ tr1.innerHTML = `
 <td id="date">شنبه ۶ خرداد ۱۳۹۹ (سه شنبه)‏</td>
 <td id="time">18 الی 20	</td>
 <td id="price">پرداخت شد</td>
-<td id="button"><button class="ripple">حذف</button></td>
+<td id="button"><button class="ripple" id="btn">تایید ویزیت</button></td>
 `;
 if (main.contains(page1)) {
     fetch(url1)
@@ -147,6 +147,7 @@ if (main.contains(page1)) {
             res.forEach(element => {
                 let clone = tr1.cloneNode(true);
                 let fname, lname, age, date, time, price, button;
+                let id = element._id;
                 fname = document.getElementById('firstname');
                 lname = document.getElementById('lastname');
                 age = document.getElementById('age');
@@ -161,7 +162,11 @@ if (main.contains(page1)) {
                 date.innerHTML = element.date.day + ' ' + element.date.date;
                 time.innerHTML = 18 + " " + "الی" + " " + 20;
                 price.innerHTML = element.price;
-                button.innerHTML = '<button class="ripple">حذف</button>';
+                button.innerHTML = '<button class="ripple" id="btn">تایید ویزیت</button>';
+
+                let btn = document.getElementById('btn');
+                btn.setAttribute('id', id);
+                btn.setAttribute("onclick", 'deleteTune()')
 
                 // table1.rows[1].cells[1].innerHTML = element.firstname;
                 // table1.rows[1].cells[2].innerHTML = element.lastname;
@@ -172,12 +177,31 @@ if (main.contains(page1)) {
                 // table1.rows[1].cells[7].innerHTML = '<button class="ripple">حذف</button>';
 
                 table1.append(clone);
+
+                // let y = "پرداخت نشد"
+                // if(price.innerText == y) {
+                //     price.style.backgroundColor = "red";
+                //     console.log('sss')
+                // } 
             });
         })
 }
 
-if (main.contains(page2)) {
-    console.log('it is work')
+function deleteTune() {
+    const btn = event.target;
+    let especialUser = btn.getAttribute('id');
+    fetch(url1, {
+        method: 'GET'
+    }).then(response => response.json())
+    .then(elem => {
+        elem.forEach(item => {
+            if (item._id == especialUser) {
+                fetch(url1 + '/' + especialUser, {
+                    method: 'DELETE'
+                }).then(response => console.log(response.status))
+            }
+        })
+    })
 }
 
 const ulMobile = document.querySelector('.navigation-sm');
@@ -244,7 +268,7 @@ class NavigationL {
         elem.onclick = this.onClick.bind(this);
     }
 
-    temp1() {
+    temp1(e) {
         if (main.contains(page2)) {
             main.removeChild(page2);
             main.append(page1);
@@ -297,7 +321,7 @@ function secondFetch() {
         <td></td>
         <td id="firstname">محمدعلی</td>
         <td id="lastname">محمدی</td>
-        <td id="date">11:53 ۱۳۹۹/۳/۴،‏ ۱۱:۵۳:۱۶</td>
+        <td id="date"> ۱۳۹۹/۳/۴،‏ ۱۱:۵۳:۱۶</td>
         <td id="button"><button class="ripple">پاسخ</button></td>
         `;
 
@@ -361,29 +385,8 @@ function myFunc() {
 // }, 1000);
 
 
-function fff() {
-    // if (main.contains(page3)) {
-        let url3 = "http://localhost:3000/dates";
-        let form = document.getElementById('form');
-        let day = document.querySelector('select[name="day"]').value;
-        let month = document.querySelector('select[name="month"]').value;
-    
-        // form.addEventListener('submit', e => {
-            // e.preventDefault();
-            let obj = {
-                a: day,
-                b: month
-            }
-
-            localStorage.setItem('a', day);
-            localStorage.setItem('b', month);
-            fetch(url3, {
-                    method: 'PUT',
-                    body: JSON.stringify(obj)
-                })
-                .then(response => console.log(response.status))
-        // })
-        console.log('true')
-    // }
+function fff(e) {
+    e.preventDefault()
+    console.log('true')
 }
 

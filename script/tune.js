@@ -138,7 +138,8 @@ const user = {
         return this.firstname + this.lastname
     },
     age: '',
-    date: []
+    date: [],
+    price: ''
 }
 
 submitBtn.addEventListener('click', event => {
@@ -203,7 +204,6 @@ let monthName = now.toLocaleDateString('fa-IR', {
 });
 let dateString = `${weekDay}، ${monthDay} ${monthName} ${year}`;
 
-
 const wrapperContent = document.getElementById("wrapper-content");
 
 let dateObj = {
@@ -212,6 +212,17 @@ let dateObj = {
 }
 
 function getTune() {
+    function func() {
+        let pay = confirm('مبلغ ویزیت طبق تعرفه برابر با ۵۰۰۰۰۰ ریال می باشد. مایل به پرداخت هستید؟');
+        if (pay) {
+            user.price = 'پرداخت شد'
+        } else {
+            user.price = 'پرداخت نشد'
+        }
+    }
+
+    func();
+
     const url = 'http://localhost:3000/tunes';
     fetch(url, {
             method: 'POST',
@@ -228,6 +239,11 @@ function getTune() {
         })
 }
 
+function myFunc() {
+    // window.location.assign('../index.html');
+    alert('نوبت شما ثبت شد.');
+}
+
 class Tune {
     constructor(elem) {
         this._elem = elem;
@@ -242,6 +258,7 @@ class Tune {
         dateObj.date = fullDate;
         user.date = dateObj;
         getTune();
+        myFunc();
     }
 
     two() {
